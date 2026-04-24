@@ -1,7 +1,12 @@
-import { redirect } from 'next/navigation'
-
-// Redirect bare / to /en (next-intl middleware handles this in production;
-// this fallback catches direct file-system renders)
+// Static-export root: meta-refresh to /en/ (middleware handles this in server deployments)
 export default function RootPage() {
-  redirect('/en')
+  return (
+    <html>
+      <head>
+        <meta httpEquiv="refresh" content="0;url=/esat-web/en/" />
+        <title>ESAT</title>
+      </head>
+      <body />
+    </html>
+  )
 }

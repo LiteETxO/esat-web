@@ -1,10 +1,9 @@
-'use client'
+import StudioClient from './StudioClient'
 
-import { NextStudio } from 'next-sanity/studio'
-import config from '../../../../sanity.config'
-
-export const dynamic = 'force-dynamic'
+export function generateStaticParams() {
+  return [{ tool: [] as string[] }]
+}
 
 export default function StudioPage() {
-  return <NextStudio config={config} />
+  return <StudioClient />
 }

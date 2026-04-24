@@ -1,7 +1,6 @@
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import Link from 'next/link'
 
-// Mocked until Sanity is wired
 const MOCK_ARTICLES = [
   { id: '1', title: 'Ethiopia opposition leaders call for talks', titleAm: 'የኢትዮጵያ ተቃዋሚ መሪዎች ድርድር ጠሩ', slug: 'opposition-calls-for-talks', category: 'Politics', publishedAt: '2026-04-22' },
   { id: '2', title: 'Addis Ababa infrastructure expansion plan announced', titleAm: 'የአዲስ አበባ መሠረተ ልማት ማስፋፊያ ዕቅድ ታወቀ', slug: 'addis-infrastructure', category: 'Economy', publishedAt: '2026-04-21' },
@@ -12,9 +11,9 @@ const MOCK_ARTICLES = [
 ]
 
 const MOCK_PROGRAMS = [
-  { id: 'p1', title: 'Ye Ethiopia Lijoch', titleAm: 'የኢትዮጵያ ልጆች', bucket: 'talk', thumbnail: null },
-  { id: 'p2', title: 'Amsterdam Bureau', titleAm: 'አምስተርዳም ቢሮ', bucket: 'amsterdam', thumbnail: null },
-  { id: 'p3', title: 'Human Rights Watch', titleAm: 'የሰብዓዊ መብት ክትትል', bucket: 'human-rights', thumbnail: null },
+  { id: 'p1', title: 'Ye Ethiopia Lijoch', titleAm: 'የኢትዮጵያ ልጆች', bucket: 'talk' },
+  { id: 'p2', title: 'Amsterdam Bureau', titleAm: 'አምስተርዳም ቢሮ', bucket: 'amsterdam' },
+  { id: 'p3', title: 'Human Rights Watch', titleAm: 'የሰብዓዊ መብት ክትትል', bucket: 'human-rights' },
 ]
 
 interface Props {
@@ -23,12 +22,12 @@ interface Props {
 
 export default async function HomePage({ params }: Props) {
   const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations('home')
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 space-y-12">
 
-      {/* Live banner */}
       <section className="rounded-xl bg-gradient-to-r from-red-900/60 to-gray-900 border border-red-800/40 p-6 flex items-center justify-between gap-4">
         <div>
           <span className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-red-400 uppercase mb-2">
@@ -38,28 +37,26 @@ export default async function HomePage({ params }: Props) {
           <h2 className="text-xl font-bold">ESAT Live Broadcast</h2>
           <p className="text-gray-400 text-sm mt-1">24/7 independent Ethiopian television</p>
         </div>
-        <a
+        <Link
           href={`/${locale}/live`}
           className="shrink-0 bg-red-600 hover:bg-red-500 text-white font-semibold px-5 py-2.5 rounded-lg transition-colors"
         >
           {t('goLive')}
-        </a>
+        </Link>
       </section>
 
-      {/* Latest News */}
       <section>
         <h2 className="text-lg font-semibold text-gray-200 mb-4 pb-2 border-b border-gray-800">
           {t('latestNews')}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {MOCK_ARTICLES.map(article => (
-            <a
+            <Link
               key={article.id}
               href={`/${locale}/news/${article.slug}`}
               className="group rounded-lg bg-gray-900 border border-gray-800 overflow-hidden hover:border-gray-600 transition-colors"
             >
               <div className="aspect-video bg-gray-800 flex items-center justify-center text-gray-600 text-xs">
-                {/* hero image placeholder */}
                 <span>Photo</span>
               </div>
               <div className="p-4">
@@ -69,19 +66,18 @@ export default async function HomePage({ params }: Props) {
                 </h3>
                 <p className="text-xs text-gray-500 mt-2">{article.publishedAt}</p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* Featured Programs */}
       <section>
         <h2 className="text-lg font-semibold text-gray-200 mb-4 pb-2 border-b border-gray-800">
           {t('featuredPrograms')}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {MOCK_PROGRAMS.map(program => (
-            <a
+            <Link
               key={program.id}
               href={`/${locale}/programs/${program.id}`}
               className="group rounded-lg bg-gray-900 border border-gray-800 overflow-hidden hover:border-gray-600 transition-colors"
@@ -95,23 +91,22 @@ export default async function HomePage({ params }: Props) {
                   {locale === 'am' ? program.titleAm : program.title}
                 </h3>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* Donate CTA */}
       <section className="rounded-xl bg-gray-900 border border-gray-800 p-8 text-center">
         <h2 className="text-2xl font-bold mb-2">Support Independent Ethiopian Journalism</h2>
         <p className="text-gray-400 mb-6 max-w-lg mx-auto">
           ESAT is viewer-funded. Your donation keeps our reporters on the ground and our signal in the air.
         </p>
-        <a
+        <Link
           href={`/${locale}/donate`}
           className="inline-block bg-red-600 hover:bg-red-500 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
         >
           Donate Now
-        </a>
+        </Link>
       </section>
 
     </div>
