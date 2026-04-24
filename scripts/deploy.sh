@@ -25,7 +25,7 @@ ssh $SSH_OPTS "$VPS" "pm2 restart esat-web && pm2 save"
 echo "→ Verifying..."
 sleep 3
 
-CSS_PATH=$(curl -s "$BASE_URL/" | grep -oE '_next/static/css/[^"]+' | head -1)
+CSS_PATH=$(curl -s "$BASE_URL/" | grep -oE '_next/static/[^"]+\.css' | head -1)
 if [ -z "$CSS_PATH" ]; then
   echo "✗ No CSS link found in HTML output"
   exit 1
