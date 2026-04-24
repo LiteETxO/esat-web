@@ -29,32 +29,10 @@
   --header-border: #E4E2DC;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-page:    #131210;
-    --bg-surface: #1C1B18;
-    --bg-muted:   #242320;
-
-    --fg-primary:   #F0EDE6;
-    --fg-secondary: #B5B0A6;
-    --fg-muted:     #706B62;
-
-    --border:       #2E2C28;
-    --border-heavy: #403D37;
-
-    --accent:     #22A855;
-    --accent-dim: #1A8443;
-
-    --gold:   #D4AC37;
-    --red-ed: #E04437;
-
-    --header-bg:     rgba(19,18,16,0.92);
-    --header-border: #2E2C28;
-  }
-}
 
 /* ─── Base ──────────────────────────────────────────────────── */
 html {
+  color-scheme: light;
   background-color: var(--bg-page);
   color: var(--fg-primary);
   font-family: var(--font-body, Arial, sans-serif);
