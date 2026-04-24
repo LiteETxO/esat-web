@@ -46,85 +46,134 @@ export default async function HomePage({ params }: Props) {
         </span>
       </div>
 
-      {/* Hero — live player */}
+      {/* Hero — featured videos */}
       <section className="border-b" style={{ borderColor: 'var(--border)' }}>
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Live / latest embed — 2/3 width */}
-            <div className="md:col-span-2">
-              <div className="text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2" style={{ color: 'var(--accent)' }}>
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="grid md:grid-cols-2 gap-4">
+
+            {/* Main featured video */}
+            <div>
+              <div className="text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
                 {liveStatus.isLive ? (
                   <>
                     <span className="w-2 h-2 rounded-full animate-pulse inline-block" style={{ background: '#E04437' }} />
                     <span style={{ color: '#E04437' }}>{isAm ? 'ቀጥታ ስርጭት' : 'Live Now'}</span>
                   </>
                 ) : (
-                  <>
-                    <span className="w-2 h-2 rounded-full inline-block" style={{ background: 'var(--accent)' }} />
-                    {isAm ? 'ቅርብ ቪዲዮ' : 'Latest Broadcast'}
-                  </>
+                  <span style={{ color: 'var(--fg-muted)' }}>{isAm ? 'ቅርብ ቪዲዮ' : 'Latest'}</span>
                 )}
               </div>
-
               {heroVideoId ? (
-                <YouTubeEmbed
-                  videoId={heroVideoId}
-                  title={heroTitle}
-                  autoplay={false}
-                  showWatchLink
-                />
+                <YouTubeEmbed videoId={heroVideoId} title={heroTitle} autoplay={false} showWatchLink />
               ) : (
-                /* Fallback when no video ID resolved yet */
                 <div
                   className="aspect-video w-full rounded flex items-center justify-center text-sm"
                   style={{ background: 'var(--bg-muted)', color: 'var(--fg-muted)', border: '1px solid var(--border)' }}
                 >
-                  <div className="text-center">
-                    <div className="text-2xl mb-2">📡</div>
-                    <a
-                      href={ESAT_CHANNEL_LIVE_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-medium hover:underline"
-                      style={{ color: 'var(--accent)' }}
-                    >
-                      {isAm ? 'ኢሳት ቀጥታ ስርጭትን ይከታተሉ →' : 'Watch ESAT live on YouTube →'}
-                    </a>
-                  </div>
+                  <a href={ESAT_CHANNEL_LIVE_URL} target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: 'var(--accent)' }}>
+                    {isAm ? 'ቀጥታ ስርጭትን ይከታተሉ →' : 'Watch ESAT live →'}
+                  </a>
                 </div>
+              )}
+              {heroVideoId && (
+                <p className="mt-1.5 text-sm font-medium leading-snug line-clamp-2" style={{ color: 'var(--fg-primary)' }}>
+                  {heroTitle}
+                </p>
               )}
             </div>
 
-            {/* Latest headlines sidebar */}
-            <div>
-              <h2 className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--fg-muted)' }}>
-                {isAm ? 'የቅርብ ዜናዎች' : 'Latest News'}
-              </h2>
-              {/* TODO: replace with Sanity news articles */}
-              <ul className="space-y-4">
-                {videos.slice(0, 4).map((video) => (
-                  <li key={video.id} className="border-b pb-3" style={{ borderColor: 'var(--border)' }}>
-                    <span className="text-[10px] font-semibold uppercase tracking-wide" style={{ color: 'var(--accent)' }}>Video</span>
+            {/* Two featured videos stacked */}
+            <div className="flex flex-col gap-4">
+              {videos.slice(1, 3).map((video) => (
+                <div key={video.id} className="flex gap-3">
+                  {/* Thumbnail */}
+                  <a
+                    href={video.watchUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 w-40 rounded overflow-hidden block group"
+                    style={{ border: '1px solid var(--border)' }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={video.thumbnails.medium || video.thumbnails.high}
+                      alt={video.title}
+                      className="w-full aspect-video object-cover group-hover:opacity-90 transition-opacity"
+                      loading="lazy"
+                    />
+                  </a>
+                  {/* Meta */}
+                  <div className="flex flex-col justify-center min-w-0">
                     <a
                       href={video.watchUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block text-sm font-medium mt-0.5 leading-snug hover:underline"
-                      style={{ color: 'var(--fg-secondary)' }}
+                      className="text-sm font-semibold leading-snug line-clamp-3 hover:underline"
+                      style={{ color: 'var(--fg-primary)' }}
                     >
                       {video.title}
                     </a>
-                  </li>
-                ))}
-              </ul>
+                    {video.publishedAt && (
+                      <p className="text-[11px] mt-1" style={{ color: 'var(--fg-muted)' }}>
+                        {new Date(video.publishedAt).toLocaleDateString(
+                          locale === 'am' ? 'am-ET' : locale === 'or' ? 'om-ET' : 'en-US',
+                          { month: 'short', day: 'numeric' }
+                        )}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              ))}
+
+              {/* Third featured video — thumbnail + title row */}
+              {videos[3] && (
+                <div className="flex gap-3">
+                  <a
+                    href={videos[3].watchUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 w-40 rounded overflow-hidden block group"
+                    style={{ border: '1px solid var(--border)' }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={videos[3].thumbnails.medium || videos[3].thumbnails.high}
+                      alt={videos[3].title}
+                      className="w-full aspect-video object-cover group-hover:opacity-90 transition-opacity"
+                      loading="lazy"
+                    />
+                  </a>
+                  <div className="flex flex-col justify-center min-w-0">
+                    <a
+                      href={videos[3].watchUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold leading-snug line-clamp-3 hover:underline"
+                      style={{ color: 'var(--fg-primary)' }}
+                    >
+                      {videos[3].title}
+                    </a>
+                    {videos[3].publishedAt && (
+                      <p className="text-[11px] mt-1" style={{ color: 'var(--fg-muted)' }}>
+                        {new Date(videos[3].publishedAt).toLocaleDateString(
+                          locale === 'am' ? 'am-ET' : locale === 'or' ? 'om-ET' : 'en-US',
+                          { month: 'short', day: 'numeric' }
+                        )}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
+
               <Link
                 href={`${base}/live`}
-                className="mt-4 inline-block text-xs font-semibold uppercase tracking-wide transition-opacity hover:opacity-70"
+                className="text-xs font-semibold uppercase tracking-wide transition-opacity hover:opacity-70 mt-auto"
                 style={{ color: 'var(--accent)' }}
               >
                 {isAm ? 'ሁሉም ቪዲዮዎች →' : 'All videos →'}
               </Link>
             </div>
+
           </div>
         </div>
       </section>
