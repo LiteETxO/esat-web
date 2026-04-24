@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "news": "Oduu",
+    "programs": "Sagantaalee",
+    "live": "Kallattii",
+    "archive": "Kuusaa",
+    "donate": "Gargaaraa"
+  },
+  "home": {
+    "latestNews": "Oduu Haaraa",
+    "featuredPrograms": "Sagantaalee Filatamoo",
+    "watchLive": "Kallattii Ilaalaa",
+    "goLive": "Kallattii Deemaa",
+    "liveNow": "KALLATTII AMMA"
+  },
+  "donate": {
+    "title": "ESAT Gargaaraa",
+    "subtitle": "Gargaarsi keessan gaazexeessummaa bilisaa Itoophiyaa jiraachisa.",
+    "monthly": "Ji'aan Ji'a",
+    "once": "Yeroo Tokko",
+    "otherAmount": "Gatii Biraa",
+    "donateButton": "Gargaaraa",
+    "secure": "Kaffaltii Stripe tiin eegame"
+  },
+  "footer": {
+    "about": "ESAT Waa'ee",
+    "contact": "Nu Quunnamaa",
+    "privacy": "Dhuunfummaa",
+    "copyright": "© {year} Televizhiinii Saatalaayitii Itoophiyaa. Mirgi kaayyofame."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "news": "News",
+    "programs": "Programs",
+    "live": "Live",
+    "archive": "Archive",
+    "donate": "Donate"
+  },
+  "home": {
+    "latestNews": "Latest News",
+    "featuredPrograms": "Featured Programs",
+    "watchLive": "Watch Live",
+    "goLive": "Go Live",
+    "liveNow": "LIVE NOW"
+  },
+  "donate": {
+    "title": "Support ESAT",
+    "subtitle": "Your donation keeps independent Ethiopian journalism alive.",
+    "monthly": "Monthly",
+    "once": "One-time",
+    "otherAmount": "Other amount",
+    "donateButton": "Donate",
+    "secure": "Secure payment via Stripe"
+  },
+  "footer": {
+    "about": "About ESAT",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "copyright": "© {year} Ethiopian Satellite Television. All rights reserved."
+  }
+}

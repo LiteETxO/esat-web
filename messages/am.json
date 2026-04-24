@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "news": "ዜና",
+    "programs": "ፕሮግራሞች",
+    "live": "ቀጥታ",
+    "archive": "ማህደር",
+    "donate": "ይደግፉ"
+  },
+  "home": {
+    "latestNews": "የቅርብ ዜና",
+    "featuredPrograms": "ተለይተው የቀረቡ ፕሮግራሞች",
+    "watchLive": "ቀጥታ ይከታተሉ",
+    "goLive": "ቀጥታ ይሂዱ",
+    "liveNow": "ቀጥታ አሁን"
+  },
+  "donate": {
+    "title": "ኢሳትን ይደግፉ",
+    "subtitle": "ድጋፍዎ ነፃ የኢትዮጵያ ጋዜጠኝነት እንዲቀጥል ያደርጋል።",
+    "monthly": "ወርሃዊ",
+    "once": "አንድ ጊዜ",
+    "otherAmount": "ሌላ መጠን",
+    "donateButton": "ይደግፉ",
+    "secure": "በ Stripe የተጠበቀ ክፍያ"
+  },
+  "footer": {
+    "about": "ስለ ኢሳት",
+    "contact": "አግኙን",
+    "privacy": "ግላዊነት",
+    "copyright": "© {year} የኢትዮጵያ ሳተላይት ቴሌቪዥን። መብቱ በህግ የተጠበቀ ነው።"
+  }
+}
