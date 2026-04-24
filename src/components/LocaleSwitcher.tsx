@@ -3,7 +3,11 @@
 import { useLocale } from 'next-intl'
 import { useRouter, usePathname } from 'next/navigation'
 
-const LABELS: Record<string, string> = { en: 'EN', am: 'አማ', or: 'OM' }
+const LOCALES: { code: string; label: string; lang: string }[] = [
+  { code: 'en', label: 'EN', lang: 'English' },
+  { code: 'am', label: 'አማ', lang: 'Amharic' },
+  { code: 'or', label: 'OM', lang: 'Afaan Oromo' },
+]
 
 export function LocaleSwitcher() {
   const locale = useLocale()
@@ -11,21 +15,25 @@ export function LocaleSwitcher() {
   const pathname = usePathname()
 
   function switchTo(next: string) {
-    const stripped = pathname.replace(/^\/(en|am|or)/, '') || '/'
-    router.push(`/${next}${stripped}`)
+    // Strip current locale prefix, re-prefix with target
+    const stripped = pathname.replace(/^\/(am|or)/, '') || '/'
+    const prefix = next === 'en' ? '' : `/${next}`
+    router.push(`${prefix}${stripped}`)
   }
 
   return (
-    <div className="flex gap-1 text-xs">
-      {Object.entries(LABELS).map(([loc, label]) => (
+    <div className="flex gap-0.5 text-xs font-medium" role="group" aria-label="Language">
+      {LOCALES.map(({ code, label, lang }) => (
         <button
-          key={loc}
-          onClick={() => switchTo(loc)}
-          className={`px-2 py-1 rounded transition-colors font-medium ${
-            locale === loc
-              ? 'bg-teal-600 text-white'
-              : 'text-stone-400 hover:text-stone-700'
-          }`}
+          key={code}
+          onClick={() => switchTo(code)}
+          aria-label={lang}
+          aria-pressed={locale === code}
+          className="px-2 py-1 rounded transition-colors"
+          style={{
+            background: locale === code ? 'var(--accent)' : 'transparent',
+            color: locale === code ? '#fff' : 'var(--fg-secondary)',
+          }}
         >
           {label}
         </button>
