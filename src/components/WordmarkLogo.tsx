@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface Props {
   locale: string
@@ -7,9 +8,15 @@ interface Props {
 
 export function WordmarkLogo({ locale, className = '' }: Props) {
   return (
-    <Link href={`/${locale}`} className={`flex flex-col leading-none ${className}`}>
-      <span className="text-2xl font-black tracking-widest text-stone-900">ESAT</span>
-      <span className="text-[10px] font-medium tracking-[0.2em] text-teal-600 uppercase">ኢሳት</span>
+    <Link href={`/${locale}`} className={`flex items-center ${className}`}>
+      <Image
+        src="/esat-web/esat-logo.png"
+        alt="ESAT — Ethiopian Satellite Television"
+        width={36}
+        height={38}
+        className="object-contain"
+        priority
+      />
     </Link>
   )
 }
