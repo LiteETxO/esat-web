@@ -8,8 +8,8 @@ interface Props {
 export function WordmarkLogo({ locale, className = '' }: Props) {
   return (
     <Link href={`/${locale}`} className={`flex flex-col leading-none ${className}`}>
-      <span className="text-2xl font-black tracking-widest text-white">ESAT</span>
-      <span className="text-[10px] font-medium tracking-[0.2em] text-red-500 uppercase">ኢሳት</span>
+      <span className="text-2xl font-black tracking-widest text-stone-900">ESAT</span>
+      <span className="text-[10px] font-medium tracking-[0.2em] text-teal-600 uppercase">ኢሳት</span>
     </Link>
   )
 }

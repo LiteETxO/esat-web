@@ -16,15 +16,15 @@ export function LocaleSwitcher() {
   }
 
   return (
-    <div className="flex gap-1 text-sm">
+    <div className="flex gap-1 text-xs">
       {Object.entries(LABELS).map(([loc, label]) => (
         <button
           key={loc}
           onClick={() => switchTo(loc)}
-          className={`px-2 py-0.5 rounded transition-colors ${
+          className={`px-2 py-1 rounded transition-colors font-medium ${
             locale === loc
-              ? 'bg-red-600 text-white'
-              : 'text-gray-400 hover:text-white'
+              ? 'bg-teal-600 text-white'
+              : 'text-stone-400 hover:text-stone-700'
           }`}
         >
           {label}
