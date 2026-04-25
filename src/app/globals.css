@@ -15,8 +15,8 @@
   --border-strong:  #d4cebe;
 
   --accent:         #0a5d3a;
-  --gold:           #b8892b;
-  --gold-soft:      #d4a945;
+  --gold:           #3cb87a;
+  --gold-soft:      #6dd4a0;
   --live:           #c8362e;
 
   /* legacy aliases kept for components that reference them */
@@ -261,7 +261,7 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   background: transparent;
 }
-.donate-tier:hover { border-color: var(--gold-soft); background: rgba(212,169,69,0.08); }
+.donate-tier:hover { border-color: var(--gold-soft); background: rgba(109,212,160,0.08); }
 
 .btn-gold {
   background: var(--gold);
@@ -276,4 +276,4 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 6px;
 }
-.btn-gold:hover { background: #9d7323; }
+.btn-gold:hover { background: #2e9e65; }
