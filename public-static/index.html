@@ -412,29 +412,52 @@
       border-radius: 50%;
       animation: pulse 1.4s ease-in-out infinite;
     }
-    .announcement-h {
-      font-family: var(--serif);
-      font-size: clamp(32px, 5vw, 64px);
-      font-weight: 700;
-      line-height: 1.0;
-      letter-spacing: -0.02em;
-      color: var(--white);
-      margin-bottom: 16px;
+    .announcement-bilingual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
       animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s both,
                  headlineGlow 4s ease-in-out 1.5s infinite;
+    }
+    .announcement-lang-am {
+      border-right: 1px solid rgba(255,255,255,0.1);
+      padding-right: 48px;
+    }
+    .announcement-lang-en { }
+    .announcement-h {
+      font-family: var(--eth-serif);
+      font-size: clamp(22px, 3vw, 38px);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+    .announcement-h.en {
+      font-family: var(--serif);
+      font-size: clamp(20px, 2.8vw, 34px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
     }
     .announcement-h em {
       font-style: italic;
       color: var(--gold);
     }
     .announcement-sub {
-      font-family: var(--serif);
-      font-size: clamp(16px, 1.8vw, 20px);
-      line-height: 1.55;
+      font-family: var(--eth-serif);
+      font-size: clamp(13px, 1.2vw, 15px);
+      line-height: 1.85;
       color: rgba(255,255,255,0.65);
-      max-width: 680px;
-      margin-bottom: 40px;
-      animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.4s both;
+    }
+    .announcement-sub.en {
+      font-family: var(--serif);
+      font-size: clamp(13px, 1.2vw, 15px);
+      line-height: 1.75;
+    }
+    @media (max-width: 760px) {
+      .announcement-bilingual { grid-template-columns: 1fr; }
+      .announcement-lang-am { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 32px; margin-bottom: 8px; }
     }
     .announcement-divider {
       width: 100%;
@@ -1154,15 +1177,30 @@
 
       <div class="announcement-flag">
         <span class="pulse" aria-hidden="true"></span>
-        Independent · Free Press · Back on Air
+        <span lang="am">ነፃ ሚዲያ</span> · Independent · <span lang="am">ወደ አየር ተመለስን</span> · Back on Air
       </div>
 
-      <h2 class="announcement-h" id="announcement-heading">
-        In a country of a thousand voices,<br><em>one answers to none of them.</em>
-      </h2>
-      <p class="announcement-sub">
-        Ethiopia's political landscape is fractured — along ethnic lines, regional loyalties, and competing visions of the nation's future. Every party has a microphone. Almost every broadcaster has an owner with an agenda. ESAT does not. Founded in exile in 2010, funded only by its audience, accountable only to the truth — we are back on air, transmitting from Addis Ababa to every Ethiopian home and diaspora community that needs journalism without a master.
-      </p>
+      <div class="announcement-bilingual" id="announcement-heading">
+
+        <div class="announcement-lang-am" lang="am">
+          <h2 class="announcement-h">
+            ሺህ ድምጾች ባሉበት ሀገር፣<br><em>አንዱ ለማንም አይታዘዝም።</em>
+          </h2>
+          <p class="announcement-sub">
+            የኢትዮጵያ ፖለቲካዊ ምህዳር ተሰንጥቋል — በብሔር መስመሮች፣ በክልላዊ ታማኝነት፣ እና ስለ ሀገሪቱ ወደፊት ተፎካካሪ ራዕዮች። እያንዳንዱ ፓርቲ ድምጽ ማጉያ አለው። ሁሉም ማለት ይቻላል ዓላማ ያለው ባለቤት አለው። ኢሳት ግን የለውም። በ2002 ዓ.ም በስደት የተመሰረተ፣ በተመልካቾቹ ብቻ የሚደገፍ፣ ለእውነት ብቻ ተጠያቂ — ወደ አየር ተመለስን። ጌታ ለሌለው ጋዜጠኝነት ወደሚፈልግ እያንዳንዱ የኢትዮጵያ ቤት እናስተላልፋለን።
+          </p>
+        </div>
+
+        <div class="announcement-lang-en">
+          <h2 class="announcement-h en">
+            In a country of a thousand voices,<br><em>one answers to none of them.</em>
+          </h2>
+          <p class="announcement-sub en">
+            Ethiopia's political landscape is fractured — along ethnic lines, regional loyalties, and competing visions of the nation's future. Every party has a microphone. Almost every broadcaster has an owner with an agenda. ESAT does not. Founded in exile in 2010, funded only by its audience, accountable only to the truth — we are back on air, transmitting from Addis Ababa to every Ethiopian home and diaspora community that needs journalism without a master.
+          </p>
+        </div>
+
+      </div>
 
       <div class="announcement-divider" aria-hidden="true"></div>
 
