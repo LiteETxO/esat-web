@@ -51,14 +51,15 @@
       --body:       #1a1a1a;
       --mid:        #444444;
       --muted:      #666666;
-      --border:     #e5e5e5;
-      --border-dk:  #cccccc;
-      --bg-alt:     #f6f6f4;
+      --border:     #d8eae0;
+      --border-dk:  #b4d4c2;
+      --bg-alt:     #f0f7f3;
       --gold:       #3cb87a;
       --gold-lt:    #6dd4a0;
       --green:      #0a5d3a;
+      --green-dk:   #061510;
       --live:       #c8362e;
-      --dark-band:  #0a0a0a;
+      --dark-band:  #0a2318;
       --serif:      'Source Serif 4', Georgia, serif;
       --sans:       'Inter', system-ui, -apple-system, sans-serif;
       --eth-serif:  'Noto Serif Ethiopic', serif;
@@ -99,7 +100,7 @@
       top: 0;
       z-index: 200;
       background: rgba(255,255,255,0.97);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 2px solid var(--green);
       backdrop-filter: blur(10px);
     }
     .mast-inner {
@@ -211,7 +212,7 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
-    .btn-donate:hover { background: #8a6b21; }
+    .btn-donate:hover { background: var(--green); }
 
     /* ── Eyebrow ── */
     .eye {
@@ -244,7 +245,7 @@
     /* ── Hero ── */
     /* ── NEWS TICKER ── */
     .ticker {
-      background: var(--ink);
+      background: var(--green);
       color: var(--white);
       height: 36px;
       display: flex;
@@ -253,12 +254,12 @@
       position: sticky;
       top: 76px;
       z-index: 190;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(0,0,0,0.15);
     }
     .ticker-label {
       flex-shrink: 0;
-      background: var(--gold);
-      color: var(--ink);
+      background: var(--gold-lt);
+      color: var(--green);
       font-size: 10px;
       font-weight: 800;
       letter-spacing: 0.14em;
@@ -853,7 +854,7 @@
 
     /* ── Newsletter ── */
     .nl {
-      background: var(--ink);
+      background: var(--green);
       padding: 72px var(--pad);
       text-align: center;
     }
@@ -908,12 +909,12 @@
       white-space: nowrap;
       transition: background .15s;
     }
-    .nl-form button:hover { background: #8a6b21; }
+    .nl-form button:hover { background: #278a5a; }
 
     /* ── Footer ── */
     footer {
-      background: var(--ink);
-      border-top: 1px solid #1c1c1c;
+      background: var(--green-dk);
+      border-top: 3px solid var(--green);
       padding: 48px var(--pad) 24px;
     }
     .foot-grid {
@@ -923,7 +924,7 @@
       grid-template-columns: 220px repeat(3, 1fr);
       gap: 48px;
       padding-bottom: 32px;
-      border-bottom: 1px solid #1c1c1c;
+      border-bottom: 1px solid rgba(60,184,122,0.15);
     }
     .foot-brand { display: flex; flex-direction: column; gap: 12px; }
     .foot-logo {
