@@ -129,7 +129,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <footer className="border-t text-sm" style={{ background: 'var(--bg-dark)', borderColor: '#2a2520', color: 'rgba(255,255,255,0.5)' }}>
             <div className="max-w-[1280px] mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
               <div>
-                <WordmarkLogo locale={locale} className="mb-4" />
+                <WordmarkLogo locale={locale} className="mb-4" variant="dark" />
                 <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
                   Independent Ethiopian broadcasting since April 24, 2010.
                   Washington D.C. · Amsterdam · London

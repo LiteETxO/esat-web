@@ -3,22 +3,24 @@ import Link from 'next/link'
 interface Props {
   locale: string
   className?: string
+  variant?: 'light' | 'dark'
 }
 
-// TODO: Replace with official supplied logo asset (§ 0.2 Q3)
-export function WordmarkLogo({ locale, className = '' }: Props) {
+export function WordmarkLogo({ locale, className = '', variant = 'light' }: Props) {
   const href = locale === 'en' ? '/' : `/${locale}`
+  const textColor = variant === 'dark' ? 'rgba(255,255,255,0.92)' : 'var(--text)'
+  const subColor = variant === 'dark' ? 'var(--gold-soft)' : 'var(--accent)'
   return (
     <Link href={href} className={`flex flex-col leading-none select-none ${className}`} aria-label="ESAT — Ethiopian Satellite Television">
       <span
         className="text-2xl font-bold tracking-[0.12em] uppercase"
-        style={{ fontFamily: 'var(--font-heading, Georgia, serif)', color: 'var(--fg-primary)' }}
+        style={{ fontFamily: 'var(--font-heading, Georgia, serif)', color: textColor }}
       >
         ESAT
       </span>
       <span
         className="text-[9px] tracking-[0.18em] uppercase"
-        style={{ fontFamily: 'var(--font-eth-body, sans-serif)', color: 'var(--accent)', letterSpacing: '0.15em' }}
+        style={{ fontFamily: 'var(--font-eth-body, sans-serif)', color: subColor, letterSpacing: '0.15em' }}
       >
         ኢሳት
       </span>
