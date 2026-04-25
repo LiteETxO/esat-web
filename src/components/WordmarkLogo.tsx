@@ -16,10 +16,10 @@ export function WordmarkLogo({ locale, className = '', variant = 'light' }: Prop
       <Image src="/esat-logo.svg" alt="ESAT logo" width={36} height={38} priority />
       <div className="flex flex-col leading-none">
         <span
-          className="text-2xl font-bold tracking-[0.12em] uppercase"
+          className="text-[13px] font-bold tracking-[0.03em] uppercase"
           style={{ fontFamily: 'var(--font-heading, Georgia, serif)', color: textColor }}
         >
-          ESAT
+          Ethiopian Satellite Television
         </span>
         <span
           className="text-[9px] tracking-[0.18em] uppercase"
