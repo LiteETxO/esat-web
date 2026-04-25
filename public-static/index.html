@@ -252,7 +252,10 @@
       display: grid;
       grid-template-columns: 60fr 40fr;
       gap: 40px;
-      align-items: start;
+      align-items: stretch;
+    }
+    .hero-video-col {
+      background: var(--ink);
     }
     .yt-wrap {
       position: relative;
@@ -856,7 +859,7 @@
     <div class="hero-split">
 
       <!-- YouTube embed — 60% -->
-      <div>
+      <div class="hero-video-col">
         <div class="yt-wrap">
           <iframe
             id="hero-yt"
