@@ -142,18 +142,17 @@
       margin-left: 24px;
     }
     .mast-nav a {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--green);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
       text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: color .15s;
+      letter-spacing: 0.02em;
       padding-bottom: 2px;
       border-bottom: 2px solid transparent;
       transition: color .15s, border-color .15s;
     }
     .mast-nav a:hover {
-      color: var(--gold);
+      color: var(--green);
       border-bottom-color: var(--gold);
     }
     .mast-right {
@@ -162,14 +161,7 @@
       align-items: center;
       gap: 14px;
     }
-    .mast-date {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--muted);
-      text-align: right;
-      line-height: 1.5;
-    }
-    .mast-date .eth { font-family: var(--eth-sans); color: var(--body); }
+    .mast-date { display: none; }
     .live-badge {
       display: none;
       align-items: center;
@@ -194,17 +186,19 @@
       display: flex;
       align-items: center;
       gap: 3px;
-      font-size: 11.5px;
-      color: var(--muted);
+      font-size: 10.5px;
+      color: var(--border-dk);
+      opacity: 0.7;
     }
     .locale span {
       cursor: pointer;
       padding: 2px 3px;
-      transition: color .15s;
+      transition: color .15s, opacity .15s;
       border-radius: 1px;
     }
-    .locale span.on { color: var(--ink); font-weight: 600; }
-    .locale span:hover { color: var(--ink); }
+    .locale:hover { opacity: 1; }
+    .locale span.on { color: var(--green); font-weight: 600; opacity: 1; }
+    .locale span:hover { color: var(--green); }
     .locale .d { color: var(--border); }
     .btn-donate {
       background: var(--gold);
