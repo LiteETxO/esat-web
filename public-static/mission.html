@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Mission — Ethiopian Satellite Television</title>
+  <meta name="description" content="ESAT's mission: independent, courageous journalism serving Ethiopia and the Ethiopian diaspora. Founded in exile on April 24, 2010.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Our Mission — Ethiopian Satellite Television">
+  <meta property="og:description" content="Independent Ethiopian broadcasting since April 24, 2010. Founded in exile. Broadcasting from home.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://161.35.220.149:3002/mission.html">
+  <meta property="og:image" content="http://161.35.220.149:3002/esat-logo.png">
+
+  <link rel="canonical" href="http://161.35.220.149:3002/mission.html">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,700&family=Inter:wght@400;500;600;700&family=Noto+Serif+Ethiopic:wght@400;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:      #ffffff;
+      --ink:        #0a0a0a;
+      --body:       #1a1a1a;
+      --mid:        #444444;
+      --muted:      #666666;
+      --border:     #e5e5e5;
+      --border-dk:  #cccccc;
+      --bg-alt:     #f6f6f4;
+      --gold:       #3cb87a;
+      --gold-lt:    #6dd4a0;
+      --green:      #0a5d3a;
+      --live:       #c8362e;
+      --serif:      'Source Serif 4', Georgia, serif;
+      --sans:       'Inter', system-ui, sans-serif;
+      --eth-serif:  'Noto Serif Ethiopic', serif;
+      --eth-sans:   'Noto Sans Ethiopic', sans-serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--body);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── MASTHEAD ── */
+    .mast {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    .mast-inner {
+      max-width: 1280px; margin: 0 auto;
+      padding: 0 32px;
+      height: 64px;
+      display: flex; align-items: center; gap: 32px;
+    }
+    .mast-logo {
+      display: flex; align-items: center; gap: 12px;
+      flex-shrink: 0;
+    }
+    .mast-logo img { height: 40px; width: auto; }
+    .mast-wm { display: flex; flex-direction: column; line-height: 1; }
+    .mast-wm-main {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+    }
+    .mast-wm-sub {
+      font-family: var(--eth-sans);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-top: 3px;
+    }
+    .mast-nav {
+      display: flex; gap: 24px;
+      font-size: 13px; font-weight: 500;
+      color: var(--mid);
+    }
+    .mast-nav a { transition: color .15s; }
+    .mast-nav a:hover, .mast-nav a.active { color: var(--ink); }
+    .mast-nav a.active { font-weight: 700; color: var(--ink); }
+    .mast-right {
+      margin-left: auto;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .mast-date {
+      display: flex; flex-direction: column; align-items: flex-end;
+      font-size: 10px; line-height: 1.4; color: var(--muted);
+    }
+    .mast-date .eth { font-family: var(--eth-sans); }
+    .locale { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--muted); }
+    .locale .on { color: var(--ink); border-bottom: 2px solid var(--gold); padding-bottom: 1px; cursor: default; }
+    .locale span:not(.d):not(.on) { cursor: pointer; transition: color .15s; }
+    .locale span:not(.d):not(.on):hover { color: var(--ink); }
+    .locale .d { color: var(--border-dk); }
+    .btn-donate {
+      background: var(--ink); color: var(--white);
+      font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+      padding: 8px 16px; border-radius: 2px;
+      transition: background .15s;
+    }
+    .btn-donate:hover { background: var(--green); }
+
+    /* ── PLACEHOLDER BANNER ── */
+    .placeholder-bar {
+      background: #fff8e1;
+      border-bottom: 1px solid #f0d060;
+      text-align: center;
+      padding: 10px 24px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #7a6000;
+      text-transform: uppercase;
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      max-width: 800px; margin: 0 auto;
+      padding: 72px 32px 56px;
+      text-align: center;
+    }
+    .page-kicker {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .page-h1 {
+      font-family: var(--serif);
+      font-size: clamp(38px, 5vw, 60px);
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .page-h1 em { font-style: italic; }
+    .page-dek {
+      font-family: var(--serif);
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--mid);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .page-rule {
+      width: 48px; height: 3px;
+      background: var(--gold);
+      margin: 40px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ── FOUNDING STATEMENT ── */
+    .founding {
+      background: var(--ink);
+      color: var(--white);
+      padding: 80px 32px;
+      text-align: center;
+    }
+    .founding-inner { max-width: 760px; margin: 0 auto; }
+    .founding-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 28px;
+    }
+    .founding-quote {
+      font-family: var(--serif);
+      font-size: clamp(22px, 3.5vw, 36px);
+      font-weight: 400;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 28px;
+    }
+    .founding-quote em { font-style: italic; color: var(--gold-lt); }
+    .founding-attr {
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── PILLARS ── */
+    .pillars {
+      max-width: 1100px; margin: 0 auto;
+      padding: 80px 32px;
+    }
+    .pillars-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 48px;
+      text-align: center;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+    }
+    .pillar {
+      border-top: 3px solid var(--gold);
+      padding-top: 24px;
+    }
+    .pillar-num {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .pillar-h {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .pillar-p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--mid);
+    }
+
+    /* ── STORY SECTION ── */
+    .story {
+      background: var(--bg-alt);
+      padding: 80px 32px;
+    }
+    .story-inner {
+      max-width: 800px; margin: 0 auto;
+    }
+    .story-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
+    }
+    .story-h {
+      font-family: var(--serif);
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 28px;
+    }
+    .story-body p {
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--body);
+      margin-bottom: 20px;
+    }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { font-weight: 700; color: var(--ink); }
+
+    /* ── COMMITMENTS ── */
+    .commitments {
+      max-width: 800px; margin: 0 auto;
+      padding: 80px 32px;
+    }
+    .commitments-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 48px;
+    }
+    .commit-list {
+      list-style: none;
+      border-top: 1px solid var(--border);
+    }
+    .commit-list li {
+      display: flex; gap: 24px; align-items: flex-start;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .commit-icon {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background: var(--bg-alt);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .commit-text h3 {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .commit-text p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--mid);
+    }
+
+    /* ── AMHARIC STATEMENT ── */
+    .amharic-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 32px;
+      text-align: center;
+    }
+    .amharic-inner { max-width: 680px; margin: 0 auto; }
+    .amharic-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 24px;
+    }
+    .amharic-text {
+      font-family: var(--eth-serif);
+      font-size: clamp(20px, 2.5vw, 28px);
+      line-height: 1.7;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .amharic-translation {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0f0f0f;
+      color: rgba(255,255,255,0.6);
+      padding: 56px 32px 32px;
+      font-size: 13px;
+    }
+    .foot-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .foot-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .foot-logo img { height: 30px; width: auto; opacity: .85; }
+    .foot-logo-t { font-family: var(--serif); font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.88); }
+    .foot-tag { font-size: 12px; line-height: 1.6; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    .foot-social { display: flex; gap: 16px; }
+    .foot-social a { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.45); transition: color .15s; }
+    .foot-social a:hover { color: var(--gold-lt); }
+    .foot-col-h { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
+    .foot-col ul { list-style: none; }
+    .foot-col li { margin-bottom: 10px; }
+    .foot-col a { font-size: 13px; color: rgba(255,255,255,0.55); transition: color .15s; }
+    .foot-col a:hover { color: var(--gold); }
+    .foot-bottom {
+      max-width: 1100px; margin: 28px auto 0;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+      font-size: 11px; color: rgba(255,255,255,0.25);
+    }
+    .foot-bottom span:last-child { font-family: var(--eth-sans); }
+
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    @media (max-width: 900px) {
+      .mast-nav { display: none; }
+      .mast-date { display: none; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+      .foot-grid { grid-template-columns: 1fr; }
+      .page-hero { padding: 48px 20px 40px; }
+      .founding, .pillars, .story, .commitments, .amharic-section { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ── PLACEHOLDER NOTICE ── -->
+<div class="placeholder-bar" role="alert" aria-label="Content notice">
+  ⚠ Placeholder — Content being finalised by editorial team
+</div>
+
+<!-- ══ MASTHEAD ══ -->
+<header class="mast" role="banner">
+  <div class="mast-inner">
+    <a href="/" class="mast-logo" aria-label="Ethiopian Satellite Television, home page">
+      <img src="/esat-logo.png" alt="ESAT logo" width="40" height="40" loading="eager">
+      <div class="mast-wm">
+        <span class="mast-wm-main">Ethiopian Satellite Television</span>
+        <span class="mast-wm-sub" lang="am">ኢሳት</span>
+      </div>
+    </a>
+
+    <nav class="mast-nav" aria-label="Main navigation">
+      <a href="/">News</a>
+      <a href="#">Programs</a>
+      <a href="#">Live</a>
+      <a href="#">Opinion</a>
+      <a href="mission.html" class="active">Mission</a>
+    </nav>
+
+    <div class="mast-right">
+      <div class="mast-date" aria-label="Today's date">
+        <span class="eth" lang="am">ሚያዝያ 17 ቀን 2018 ዓ.ም</span>
+        <span>25 April 2026</span>
+      </div>
+      <div class="locale" role="navigation" aria-label="Language selector">
+        <span class="on" tabindex="0" role="button" aria-pressed="true" aria-label="English — current language">EN</span>
+        <span class="d" aria-hidden="true">·</span>
+        <span lang="am" tabindex="0" role="button" aria-pressed="false" aria-label="አማርኛ">አማ</span>
+        <span class="d" aria-hidden="true">·</span>
+        <span tabindex="0" role="button" aria-pressed="false" aria-label="Afaan Oromoo">OM</span>
+      </div>
+      <a href="#" class="btn-donate" aria-label="Support ESAT with a donation">Support ESAT</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" role="main">
+
+  <!-- ══ PAGE HERO ══ -->
+  <section class="page-hero" aria-labelledby="mission-heading">
+    <p class="page-kicker">Who We Are</p>
+    <h1 class="page-h1" id="mission-heading">Journalism in the <em>service of truth</em></h1>
+    <p class="page-dek">
+      Ethiopian Satellite Television was founded on a single conviction: that Ethiopians — at home and in the diaspora — deserve free, fearless, and accountable journalism.
+    </p>
+    <div class="page-rule" aria-hidden="true"></div>
+  </section>
+
+  <!-- ══ FOUNDING STATEMENT ══ -->
+  <section class="founding" aria-label="Founding statement">
+    <div class="founding-inner">
+      <p class="founding-label">Founded April 24, 2010</p>
+      <blockquote class="founding-quote">
+        "We were founded in exile because the truth had no home inside Ethiopia.
+        We return to Addis Ababa because <em>the truth always finds its way home.</em>"
+      </blockquote>
+      <p class="founding-attr">ESAT Editorial Board · Washington D.C., 2010</p>
+    </div>
+  </section>
+
+  <!-- ══ PILLARS ══ -->
+  <section class="pillars" aria-labelledby="pillars-heading">
+    <p class="pillars-label" id="pillars-heading">Our Core Principles</p>
+    <div class="pillars-grid">
+
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h2 class="pillar-h">Independence</h2>
+        <p class="pillar-p">
+          ESAT accepts no funding from any government, political party, or interest group. Our editorial decisions are made by journalists — no one else. Our independence is not a policy; it is a covenant with our audience.
+        </p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h2 class="pillar-h">Courage</h2>
+        <p class="pillar-p">
+          We cover what others won't. We name what others leave unnamed. From conflict zones in Tigray to the corridors of the African Union, ESAT journalists go where the story demands — regardless of risk.
+        </p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h2 class="pillar-h">Accountability</h2>
+        <p class="pillar-p">
+          We hold power to account — not only the power of governments, but of institutions, media organisations, and ourselves. When we get it wrong, we say so. Corrections are published openly and without delay.
+        </p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-num">04</div>
+        <h2 class="pillar-h">Plurality</h2>
+        <p class="pillar-p">
+          Ethiopia is a nation of more than 80 languages and countless stories. ESAT broadcasts in Amharic, Afaan Oromoo, Tigrigna, and English — because no single voice can speak for a nation this diverse.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ OUR STORY ══ -->
+  <section class="story" aria-labelledby="story-heading">
+    <div class="story-inner">
+      <p class="story-label">Our Story</p>
+      <h2 class="story-h" id="story-heading">From exile to Addis Ababa — sixteen years of independent broadcasting</h2>
+      <div class="story-body">
+        <p>
+          ESAT was established on <strong>April 24, 2010</strong>, by a group of Ethiopian journalists and activists operating from Washington D.C. and Amsterdam. The founding came at a moment when independent voices inside Ethiopia faced arrest, intimidation, and forced silence. The satellite signal became a lifeline — a way to reach millions of Ethiopians who had no access to uncensored news.
+        </p>
+        <p>
+          Through a decade of broadcasting from abroad, ESAT reported on elections, famines, protests, and political upheaval. When the political landscape shifted in 2018, ESAT's journalists began returning to Addis Ababa. The satellite station became a terrestrial broadcaster — not by abandoning its founding values, but by proving them.
+        </p>
+        <p>
+          Today ESAT operates studios in <strong>Addis Ababa, Washington D.C., Amsterdam, and London</strong>. We reach more than four million viewers weekly across television, radio, and digital platforms. We are funded entirely by the Ethiopian public — through subscriptions, donations, and diaspora partnerships — with no government money accepted, ever.
+        </p>
+        <p>
+          <em>This page is a placeholder. The full editorial history of ESAT is being documented and will be published here shortly.</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ COMMITMENTS ══ -->
+  <section class="commitments" aria-labelledby="commitments-heading">
+    <p class="commitments-label" id="commitments-heading">What We Commit To</p>
+    <ul class="commit-list">
+      <li>
+        <div class="commit-icon" aria-hidden="true">✦</div>
+        <div class="commit-text">
+          <h3>No government funding — ever</h3>
+          <p>ESAT has never accepted a single birr, dollar, or euro from any government. We are funded by our audience. That is the only way a free press can remain free.</p>
+        </div>
+      </li>
+      <li>
+        <div class="commit-icon" aria-hidden="true">✦</div>
+        <div class="commit-text">
+          <h3>Transparent corrections</h3>
+          <p>Errors are corrected promptly and published openly. We do not silently edit stories. Every correction names the mistake, the correction, and the date it was made.</p>
+        </div>
+      </li>
+      <li>
+        <div class="commit-icon" aria-hidden="true">✦</div>
+        <div class="commit-text">
+          <h3>Source protection</h3>
+          <p>We will never reveal a source without explicit consent. Journalists who report for ESAT operate under strict protocols to protect those who speak to us at personal risk.</p>
+        </div>
+      </li>
+      <li>
+        <div class="commit-icon" aria-hidden="true">✦</div>
+        <div class="commit-text">
+          <h3>Multilingual reach</h3>
+          <p>We are committed to reporting in Ethiopia's major languages. Amharic and Afaan Oromoo broadcasts receive equal editorial resources. Tigrigna and English services continue to grow.</p>
+        </div>
+      </li>
+      <li>
+        <div class="commit-icon" aria-hidden="true">✦</div>
+        <div class="commit-text">
+          <h3>Press freedom advocacy</h3>
+          <p>ESAT documents threats to journalists across Africa and advocates publicly for detained reporters. We believe press freedom is not a professional interest — it is a human right.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ══ AMHARIC STATEMENT ══ -->
+  <section class="amharic-section" aria-label="Mission statement in Amharic">
+    <div class="amharic-inner">
+      <p class="amharic-label">Mission · In Amharic</p>
+      <p class="amharic-text" lang="am">
+        ኢሳት ከተቋቋመበት ጊዜ አንሥቶ ለኢትዮጵያ ሕዝብ ነፃ፣ ተጠያቂ እና ደፋር ጋዜጠኝነት ለማቅረብ ቁርጠኛ ሆኖ ቆይቷል።
+        ቤታችን ኢትዮጵያ ናት — ድምፃችን ግን ለሁሉም ኢትዮጵያውያን ነው።
+      </p>
+      <p class="amharic-translation">
+        "Since its founding, ESAT has remained committed to delivering free, accountable,<br>and courageous journalism to the Ethiopian people.<br>Our home is Ethiopia — our voice belongs to all Ethiopians."
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer role="contentinfo">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a href="/" class="foot-logo" aria-label="ESAT home">
+        <img src="/esat-logo.png" alt="ESAT logo" width="30" height="30" loading="lazy">
+        <span class="foot-logo-t">ESAT</span>
+      </a>
+      <p class="foot-tag">Independent Ethiopian broadcasting since April 24, 2010.<br>Washington D.C. · Amsterdam · London · Addis Ababa</p>
+      <div class="foot-social" aria-label="ESAT on social media">
+        <a href="https://www.youtube.com/@ESATtvEthiopia" target="_blank" rel="noopener noreferrer" aria-label="ESAT on YouTube">YouTube</a>
+        <a href="#" aria-label="ESAT on Facebook">Facebook</a>
+        <a href="#" aria-label="ESAT on X (Twitter)">X</a>
+        <a href="#" aria-label="ESAT on Telegram">Telegram</a>
+      </div>
+    </div>
+
+    <div class="foot-col">
+      <div class="foot-col-h">Coverage</div>
+      <ul>
+        <li><a href="/">News</a></li>
+        <li><a href="#">Opinion</a></li>
+        <li><a href="#">Programs</a></li>
+        <li><a href="#">Live TV</a></li>
+        <li><a href="#">Radio</a></li>
+        <li><a href="https://www.youtube.com/@ESATtvEthiopia" target="_blank" rel="noopener noreferrer">YouTube Archive</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <div class="foot-col-h">Organisation</div>
+      <ul>
+        <li><a href="#">About ESAT</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Editorial Policy</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <div class="foot-col-h">Policies</div>
+      <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Corrections</a></li>
+        <li><a href="#">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <span>© 2026 Foundation Ethiopian Satellite Television and Radio</span>
+    <span lang="am">ኢሳት — ኢትዮጵያ ሳተላይት ቴሌቪዥን እና ሬዲዮ</span>
+  </div>
+</footer>
+
+</body>
+</html>
