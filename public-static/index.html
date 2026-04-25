@@ -332,6 +332,22 @@
       0%, 100% { box-shadow: 0 0 0 0 rgba(60,184,122,0); }
       50%       { box-shadow: 0 0 24px 6px rgba(60,184,122,0.55); }
     }
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(-50%) rotate(-6deg); }
+      50%       { transform: translateY(calc(-50% - 14px)) rotate(-6deg); }
+    }
+    .announcement-watermark {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      width: clamp(260px, 28vw, 420px);
+      height: auto;
+      opacity: 0.12;
+      pointer-events: none;
+      user-select: none;
+      filter: brightness(10);
+      animation: logoFloat 8s ease-in-out infinite;
+    }
     @keyframes beamSweep {
       0%   { transform: translateX(-100%) skewX(-15deg); opacity: 0; }
       10%  { opacity: 1; }
@@ -389,7 +405,7 @@
     .announcement-inner {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 40px var(--pad) 44px;
+      padding: 36px var(--pad) 36px;
     }
     .announcement-flag {
       display: inline-flex;
@@ -440,30 +456,28 @@
       width: 100%;
       height: 1px;
       background: rgba(255,255,255,0.1);
-      margin-bottom: 32px;
+      margin-bottom: 20px;
       animation: fadeIn 0.5s ease 0.6s both;
     }
-    .announcement-freq-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
+    .announcement-freq-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0;
       animation: fadeIn 0.5s ease 0.65s both;
     }
-    .announcement-freq-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 0;
-    }
     .freq-item {
-      padding: 20px 24px;
-      border-left: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      padding: 8px 20px 8px 0;
+      margin-right: 20px;
+      border-right: 1px solid rgba(255,255,255,0.1);
       animation: freqSlide 0.5s cubic-bezier(0.22,1,0.36,1) both,
                  freqPulse 5s ease-in-out infinite;
     }
-    .freq-item:first-child  { border-left: none; padding-left: 0; animation-delay: 0.7s, 2s; }
+    .freq-item:last-child { border-right: none; margin-right: 0; }
+    .freq-item:first-child { animation-delay: 0.7s, 2s; }
     .freq-item:nth-child(2) { animation-delay: 0.82s, 2.4s; }
     .freq-item:nth-child(3) { animation-delay: 0.94s, 2.8s; }
     .freq-item:nth-child(4) { animation-delay: 1.06s, 3.2s; }
@@ -472,14 +486,13 @@
     .freq-key {
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.35);
-      margin-bottom: 8px;
     }
     .freq-val {
       font-family: var(--mono);
-      font-size: 18px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--white);
       letter-spacing: 0.02em;
@@ -488,7 +501,7 @@
       color: rgba(255,255,255,0.3);
       font-style: italic;
       font-family: var(--sans);
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 400;
     }
     @keyframes pulse {
@@ -1150,6 +1163,7 @@
 
   <!-- ══ ON-AIR ANNOUNCEMENT ══ -->
   <section class="announcement" aria-labelledby="announcement-heading">
+    <img src="/esat-logo.svg" alt="" aria-hidden="true" class="announcement-watermark">
     <div class="announcement-inner">
 
       <div class="announcement-flag">
@@ -1166,39 +1180,31 @@
 
       <div class="announcement-divider" aria-hidden="true"></div>
 
-      <p class="announcement-freq-label">Satellite Reception Details</p>
-      <div class="announcement-freq-grid" role="table" aria-label="Satellite frequency details">
-
+      <div class="announcement-freq-bar" role="table" aria-label="Satellite frequency details">
         <div class="freq-item" role="row">
-          <div class="freq-key" role="columnheader">Satellite</div>
-          <div class="freq-val placeholder" role="cell">To be confirmed</div>
+          <span class="freq-key" role="columnheader">Satellite</span>
+          <span class="freq-val placeholder" role="cell">TBC</span>
         </div>
-
         <div class="freq-item" role="row">
-          <div class="freq-key" role="columnheader">Frequency</div>
-          <div class="freq-val placeholder" role="cell">— MHz</div>
+          <span class="freq-key" role="columnheader">Freq</span>
+          <span class="freq-val placeholder" role="cell">— MHz</span>
         </div>
-
         <div class="freq-item" role="row">
-          <div class="freq-key" role="columnheader">Symbol Rate</div>
-          <div class="freq-val placeholder" role="cell">— Ks/s</div>
+          <span class="freq-key" role="columnheader">Symbol Rate</span>
+          <span class="freq-val placeholder" role="cell">— Ks/s</span>
         </div>
-
         <div class="freq-item" role="row">
-          <div class="freq-key" role="columnheader">Polarisation</div>
-          <div class="freq-val placeholder" role="cell">—</div>
+          <span class="freq-key" role="columnheader">Pol</span>
+          <span class="freq-val placeholder" role="cell">—</span>
         </div>
-
         <div class="freq-item" role="row">
-          <div class="freq-key" role="columnheader">FEC</div>
-          <div class="freq-val placeholder" role="cell">—</div>
+          <span class="freq-key" role="columnheader">FEC</span>
+          <span class="freq-val placeholder" role="cell">—</span>
         </div>
-
         <div class="freq-item" role="row">
-          <div class="freq-key" role="columnheader">Coverage</div>
-          <div class="freq-val placeholder" role="cell">East Africa · Europe · N. America</div>
+          <span class="freq-key" role="columnheader">Coverage</span>
+          <span class="freq-val placeholder" role="cell">East Africa · Europe · N. America</span>
         </div>
-
       </div>
     </div>
   </section>
