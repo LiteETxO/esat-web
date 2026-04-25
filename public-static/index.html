@@ -242,6 +242,112 @@
     }
 
     /* ── Hero ── */
+    /* ── ON-AIR ANNOUNCEMENT ── */
+    .announcement {
+      background: var(--ink);
+      color: var(--white);
+      border-bottom: 3px solid var(--gold);
+    }
+    .announcement-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 40px var(--pad) 44px;
+    }
+    .announcement-flag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+    .announcement-flag .pulse {
+      width: 7px; height: 7px;
+      background: var(--ink);
+      border-radius: 50%;
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    .announcement-h {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 64px);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .announcement-h em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .announcement-sub {
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.8vw, 20px);
+      line-height: 1.55;
+      color: rgba(255,255,255,0.65);
+      max-width: 680px;
+      margin-bottom: 40px;
+    }
+    .announcement-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin-bottom: 32px;
+    }
+    .announcement-freq-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .announcement-freq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0;
+    }
+    .freq-item {
+      padding: 20px 24px;
+      border-left: 1px solid rgba(255,255,255,0.08);
+    }
+    .freq-item:first-child {
+      border-left: none;
+      padding-left: 0;
+    }
+    .freq-key {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 8px;
+    }
+    .freq-val {
+      font-family: var(--mono);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+    .freq-val.placeholder {
+      color: rgba(255,255,255,0.3);
+      font-style: italic;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 400;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.75); }
+    }
+
     .hero {
       max-width: var(--max);
       margin: 0 auto;
@@ -850,6 +956,61 @@
 </header>
 
 <main id="main" role="main">
+
+  <!-- ══ ON-AIR ANNOUNCEMENT ══ -->
+  <section class="announcement" aria-labelledby="announcement-heading">
+    <div class="announcement-inner">
+
+      <div class="announcement-flag">
+        <span class="pulse" aria-hidden="true"></span>
+        Back on Air
+      </div>
+
+      <h2 class="announcement-h" id="announcement-heading">
+        ESAT is broadcasting.<br><em>Find us on your satellite dish.</em>
+      </h2>
+      <p class="announcement-sub">
+        After years of broadcasting from exile, Ethiopian Satellite Television has returned — now transmitting from Addis Ababa to homes across Ethiopia and the diaspora. Tune in on the frequencies below.
+      </p>
+
+      <div class="announcement-divider" aria-hidden="true"></div>
+
+      <p class="announcement-freq-label">Satellite Reception Details</p>
+      <div class="announcement-freq-grid" role="table" aria-label="Satellite frequency details">
+
+        <div class="freq-item" role="row">
+          <div class="freq-key" role="columnheader">Satellite</div>
+          <div class="freq-val placeholder" role="cell">To be confirmed</div>
+        </div>
+
+        <div class="freq-item" role="row">
+          <div class="freq-key" role="columnheader">Frequency</div>
+          <div class="freq-val placeholder" role="cell">— MHz</div>
+        </div>
+
+        <div class="freq-item" role="row">
+          <div class="freq-key" role="columnheader">Symbol Rate</div>
+          <div class="freq-val placeholder" role="cell">— Ks/s</div>
+        </div>
+
+        <div class="freq-item" role="row">
+          <div class="freq-key" role="columnheader">Polarisation</div>
+          <div class="freq-val placeholder" role="cell">—</div>
+        </div>
+
+        <div class="freq-item" role="row">
+          <div class="freq-key" role="columnheader">FEC</div>
+          <div class="freq-val placeholder" role="cell">—</div>
+        </div>
+
+        <div class="freq-item" role="row">
+          <div class="freq-key" role="columnheader">Coverage</div>
+          <div class="freq-val placeholder" role="cell">East Africa · Europe · N. America</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ══ HERO ══ -->
   <section class="hero" aria-label="Featured broadcast and editorial">
