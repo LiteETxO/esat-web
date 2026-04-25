@@ -126,7 +126,7 @@
       font-weight: 700;
       font-size: 18px;
       letter-spacing: 0.01em;
-      color: var(--ink);
+      color: var(--green);
     }
     .mast-wm-sub {
       font-family: var(--eth-sans);
@@ -144,12 +144,18 @@
     .mast-nav a {
       font-size: 15px;
       font-weight: 500;
-      color: var(--ink);
+      color: var(--green);
       text-decoration: none;
       letter-spacing: 0.01em;
       transition: color .15s;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: color .15s, border-color .15s;
     }
-    .mast-nav a:hover { color: var(--gold); }
+    .mast-nav a:hover {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
     .mast-right {
       margin-left: auto;
       display: flex;
