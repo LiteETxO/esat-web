@@ -1,3 +1,5 @@
 {
-  "framework": "nextjs"
+  "outputDirectory": "public-static",
+  "buildCommand": "",
+  "installCommand": ""
 }
