@@ -107,39 +107,39 @@
       max-width: var(--max);
       margin: 0 auto;
       padding: 0 var(--pad);
-      height: 76px;
+      height: 72px;
       display: flex;
       align-items: center;
-      gap: 28px;
     }
     .mast-logo {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       text-decoration: none;
       flex-shrink: 0;
     }
-    .mast-logo img { height: 52px; width: auto; }
+    .mast-logo img { height: 48px; width: auto; }
     .mast-wm { display: flex; flex-direction: column; line-height: 1; }
     .mast-wm-main {
       font-family: var(--serif);
       font-weight: 700;
-      font-size: 18px;
+      font-size: 17px;
       letter-spacing: 0.01em;
       color: var(--green);
     }
     .mast-wm-sub {
       font-family: var(--eth-sans);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--gold);
       letter-spacing: 0.08em;
       margin-top: 4px;
     }
     .mast-nav {
+      flex: 1;
       display: flex;
       align-items: center;
-      gap: 28px;
-      margin-left: 24px;
+      justify-content: center;
+      gap: 32px;
     }
     .mast-nav a {
       font-size: 14px;
@@ -147,7 +147,7 @@
       color: var(--muted);
       text-decoration: none;
       letter-spacing: 0.02em;
-      padding-bottom: 2px;
+      padding-bottom: 3px;
       border-bottom: 2px solid transparent;
       transition: color .15s, border-color .15s;
     }
@@ -156,10 +156,10 @@
       border-bottom-color: var(--gold);
     }
     .mast-right {
-      margin-left: auto;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
     }
     .mast-date { display: none; }
     .live-badge {
@@ -252,7 +252,7 @@
       align-items: center;
       overflow: hidden;
       position: sticky;
-      top: 76px;
+      top: 72px;
       z-index: 190;
       border-bottom: 1px solid rgba(0,0,0,0.15);
     }
