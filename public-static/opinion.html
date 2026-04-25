@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opinion — Ethiopian Satellite Television</title>
+  <meta name="description" content="Analysis, commentary, and editorial perspectives from ESAT's columnists and contributors on Ethiopian politics, society, and diaspora affairs.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Opinion — Ethiopian Satellite Television">
+  <meta property="og:description" content="Analysis, commentary, and editorial perspectives on Ethiopian politics, society, and diaspora affairs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://161.35.220.149:3002/opinion.html">
+  <meta property="og:image" content="http://161.35.220.149:3002/esat-logo.png">
+
+  <link rel="canonical" href="http://161.35.220.149:3002/opinion.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,700&family=Inter:wght@400;500;600;700&family=Noto+Serif+Ethiopic:wght@400;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:      #ffffff;
+      --ink:        #0a0a0a;
+      --body:       #1a1a1a;
+      --mid:        #444444;
+      --muted:      #666666;
+      --border:     #e5e5e5;
+      --border-dk:  #cccccc;
+      --bg-alt:     #f6f6f4;
+      --gold:       #3cb87a;
+      --gold-lt:    #6dd4a0;
+      --green:      #0a5d3a;
+      --live:       #c8362e;
+      --serif:      'Source Serif 4', Georgia, serif;
+      --sans:       'Inter', system-ui, sans-serif;
+      --eth-serif:  'Noto Serif Ethiopic', serif;
+      --eth-sans:   'Noto Sans Ethiopic', sans-serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--body); background: var(--white); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── MASTHEAD ── */
+    .mast { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); }
+    .mast-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; height: 64px; display: flex; align-items: center; gap: 32px; }
+    .mast-logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .mast-logo img { height: 40px; width: auto; }
+    .mast-wm { display: flex; flex-direction: column; line-height: 1; }
+    .mast-wm-main { font-family: var(--serif); font-weight: 700; font-size: 14px; letter-spacing: 0.01em; color: var(--ink); }
+    .mast-wm-sub { font-family: var(--eth-sans); font-size: 10px; color: var(--gold); letter-spacing: 0.08em; margin-top: 3px; }
+    .mast-nav { display: flex; gap: 24px; font-size: 13px; font-weight: 500; color: var(--mid); }
+    .mast-nav a { transition: color .15s; }
+    .mast-nav a:hover { color: var(--ink); }
+    .mast-nav a.active { font-weight: 700; color: var(--ink); }
+    .mast-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+    .mast-date { display: flex; flex-direction: column; align-items: flex-end; font-size: 10px; line-height: 1.4; color: var(--muted); }
+    .mast-date .eth { font-family: var(--eth-sans); }
+    .locale { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--muted); }
+    .locale .on { color: var(--ink); border-bottom: 2px solid var(--gold); padding-bottom: 1px; cursor: default; }
+    .locale span:not(.d):not(.on) { cursor: pointer; transition: color .15s; }
+    .locale span:not(.d):not(.on):hover { color: var(--ink); }
+    .locale .d { color: var(--border-dk); }
+    .btn-donate { background: var(--ink); color: var(--white); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; padding: 8px 16px; border-radius: 2px; transition: background .15s; }
+    .btn-donate:hover { background: var(--green); }
+
+    /* ── PLACEHOLDER BANNER ── */
+    .placeholder-bar { background: #fff8e1; border-bottom: 1px solid #f0d060; text-align: center; padding: 10px 24px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: #7a6000; text-transform: uppercase; }
+
+    /* ── SECTION HEADER ── */
+    .section-banner {
+      border-bottom: 3px solid var(--ink);
+      padding: 48px 32px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-banner-kicker {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .section-banner-h {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.05;
+    }
+    .section-banner-dek {
+      font-family: var(--serif);
+      font-size: 17px;
+      color: var(--mid);
+      line-height: 1.55;
+      margin-top: 14px;
+      max-width: 680px;
+    }
+
+    /* ── FEATURED ESSAY ── */
+    .featured {
+      max-width: 1200px; margin: 0 auto;
+      padding: 48px 32px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 56px;
+      align-items: start;
+      border-bottom: 1px solid var(--border);
+    }
+    .featured-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 18px;
+    }
+    .featured-h {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .featured-h em { font-style: italic; }
+    .featured-byline {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px;
+    }
+    .featured-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--bg-alt);
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--muted);
+      flex-shrink: 0;
+    }
+    .featured-byline-text { font-size: 13px; color: var(--mid); line-height: 1.4; }
+    .featured-byline-text strong { color: var(--ink); font-weight: 600; display: block; }
+    .featured-body {
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--body);
+    }
+    .featured-body p { margin-bottom: 18px; }
+    .featured-body p:last-child { margin-bottom: 0; }
+    .featured-body .drop-cap::first-letter {
+      font-size: 4.2em;
+      font-weight: 700;
+      float: left;
+      line-height: 0.8;
+      margin: 6px 10px 0 0;
+      color: var(--ink);
+    }
+    .read-more {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 24px;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 2px;
+      transition: color .15s, border-color .15s;
+    }
+    .read-more:hover { color: var(--green); border-color: var(--green); }
+
+    /* Featured sidebar */
+    .featured-sidebar { border-left: 1px solid var(--border); padding-left: 40px; }
+    .sidebar-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
+    .sidebar-item { padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .sidebar-item:first-of-type { padding-top: 0; }
+    .sidebar-item:last-child { border-bottom: none; }
+    .sidebar-item-kicker { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .sidebar-item-h { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 8px; transition: color .15s; }
+    .sidebar-item:hover .sidebar-item-h { color: var(--gold); }
+    .sidebar-item-byline { font-size: 12px; color: var(--muted); }
+
+    /* ── OPINION GRID ── */
+    .opinions {
+      max-width: 1200px; margin: 0 auto;
+      padding: 48px 32px;
+    }
+    .opinions-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 32px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--ink);
+    }
+    .opinions-header h2 { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); }
+    .opinions-header a { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); transition: color .15s; }
+    .opinions-header a:hover { color: var(--green); }
+    .opinions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .ocard { display: flex; flex-direction: column; }
+    .ocard-kicker { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .ocard-h { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1.25; margin-bottom: 10px; transition: color .15s; }
+    .ocard:hover .ocard-h { color: var(--gold); }
+    .ocard-dek { font-size: 14px; line-height: 1.65; color: var(--mid); margin-bottom: 16px; flex: 1; }
+    .ocard-byline { display: flex; align-items: center; gap: 10px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .ocard-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--bg-alt); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+    .ocard-byline-text { font-size: 12px; color: var(--mid); line-height: 1.35; }
+    .ocard-byline-text strong { color: var(--ink); font-weight: 600; display: block; }
+
+    /* ── PULL QUOTE ── */
+    .pullquote {
+      background: var(--bg-alt);
+      border-left: 4px solid var(--gold);
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 48px 80px;
+    }
+    .pullquote-text {
+      font-family: var(--serif);
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+    .pullquote-attr { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+    /* ── COLUMNISTS ── */
+    .columnists {
+      max-width: 1200px; margin: 0 auto;
+      padding: 56px 32px;
+      border-top: 1px solid var(--border);
+    }
+    .columnists-header { margin-bottom: 36px; padding-bottom: 12px; border-bottom: 3px solid var(--ink); }
+    .columnists-header h2 { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); }
+    .columnists-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+    .columnist {
+      padding: 24px;
+      background: var(--bg-alt);
+      border-top: 3px solid var(--gold);
+      transition: transform .15s;
+    }
+    .columnist:hover { transform: translateY(-3px); }
+    .columnist-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--border);
+      margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      color: var(--muted);
+      border: 2px solid var(--border-dk);
+    }
+    .columnist-name { font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .columnist-title { font-size: 12px; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+    .columnist-bio { font-size: 13px; line-height: 1.6; color: var(--mid); }
+
+    /* ── EDITORIAL POLICY NOTE ── */
+    .editorial-note {
+      background: var(--ink);
+      color: rgba(255,255,255,0.7);
+      padding: 56px 32px;
+      text-align: center;
+    }
+    .editorial-note-inner { max-width: 680px; margin: 0 auto; }
+    .editorial-note-label { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .editorial-note-text { font-family: var(--serif); font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+    .editorial-note-sub { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+    /* ── FOOTER ── */
+    footer { background: #0f0f0f; color: rgba(255,255,255,0.6); padding: 56px 32px 32px; font-size: 13px; }
+    .foot-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .foot-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .foot-logo img { height: 30px; width: auto; opacity: .85; }
+    .foot-logo-t { font-family: var(--serif); font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.88); }
+    .foot-tag { font-size: 12px; line-height: 1.6; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    .foot-social { display: flex; gap: 16px; }
+    .foot-social a { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.45); transition: color .15s; }
+    .foot-social a:hover { color: var(--gold-lt); }
+    .foot-col-h { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
+    .foot-col ul { list-style: none; }
+    .foot-col li { margin-bottom: 10px; }
+    .foot-col a { font-size: 13px; color: rgba(255,255,255,0.55); transition: color .15s; }
+    .foot-col a:hover { color: var(--gold); }
+    .foot-bottom { max-width: 1100px; margin: 28px auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 11px; color: rgba(255,255,255,0.25); }
+    .foot-bottom span:last-child { font-family: var(--eth-sans); }
+
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+    @media (max-width: 1024px) {
+      .featured { grid-template-columns: 1fr; }
+      .featured-sidebar { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 32px; }
+      .opinions-grid { grid-template-columns: 1fr 1fr; }
+      .columnists-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .mast-nav { display: none; }
+      .mast-date { display: none; }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+      .pullquote { padding: 40px 32px; }
+    }
+    @media (max-width: 600px) {
+      .opinions-grid { grid-template-columns: 1fr; }
+      .columnists-grid { grid-template-columns: 1fr 1fr; }
+      .section-banner, .featured, .opinions, .columnists { padding-left: 20px; padding-right: 20px; }
+      .foot-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ── PLACEHOLDER NOTICE ── -->
+<div class="placeholder-bar" role="alert" aria-label="Content notice">
+  ⚠ Placeholder — Content being finalised by editorial team
+</div>
+
+<!-- ══ MASTHEAD ══ -->
+<header class="mast" role="banner">
+  <div class="mast-inner">
+    <a href="/" class="mast-logo" aria-label="Ethiopian Satellite Television, home page">
+      <img src="/esat-logo.png" alt="ESAT logo" width="40" height="40" loading="eager">
+      <div class="mast-wm">
+        <span class="mast-wm-main">Ethiopian Satellite Television</span>
+        <span class="mast-wm-sub" lang="am">ኢሳት</span>
+      </div>
+    </a>
+
+    <nav class="mast-nav" aria-label="Main navigation">
+      <a href="/">News</a>
+      <a href="#">Programs</a>
+      <a href="#">Live</a>
+      <a href="opinion.html" class="active">Opinion</a>
+      <a href="mission.html">Mission</a>
+    </nav>
+
+    <div class="mast-right">
+      <div class="mast-date" aria-label="Today's date">
+        <span class="eth" lang="am">ሚያዝያ 17 ቀን 2018 ዓ.ም</span>
+        <span>25 April 2026</span>
+      </div>
+      <div class="locale" role="navigation" aria-label="Language selector">
+        <span class="on" tabindex="0" role="button" aria-pressed="true" aria-label="English — current language">EN</span>
+        <span class="d" aria-hidden="true">·</span>
+        <span lang="am" tabindex="0" role="button" aria-pressed="false" aria-label="አማርኛ">አማ</span>
+        <span class="d" aria-hidden="true">·</span>
+        <span tabindex="0" role="button" aria-pressed="false" aria-label="Afaan Oromoo">OM</span>
+      </div>
+      <a href="#" class="btn-donate" aria-label="Support ESAT with a donation">Support ESAT</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" role="main">
+
+  <!-- ══ SECTION BANNER ══ -->
+  <div class="section-banner">
+    <p class="section-banner-kicker">Analysis · Commentary · Editorial</p>
+    <h1 class="section-banner-h">Opinion</h1>
+    <p class="section-banner-dek">Independent voices on Ethiopian politics, society, and diaspora affairs. The views expressed are those of the authors.</p>
+  </div>
+
+  <!-- ══ FEATURED ESSAY ══ -->
+  <section class="featured" aria-label="Featured opinion essay">
+
+    <div class="featured-main">
+      <p class="featured-label">Featured Essay</p>
+      <h2 class="featured-h">Ethiopia's federal experiment: <em>can unity survive a decade of reform?</em></h2>
+
+      <div class="featured-byline">
+        <div class="featured-avatar" aria-hidden="true">✦</div>
+        <div class="featured-byline-text">
+          <strong>Dr. Aster Woldemichael</strong>
+          Contributing Analyst · Political Science, Addis Ababa University
+        </div>
+      </div>
+
+      <div class="featured-body">
+        <p class="drop-cap">
+          Ethiopia's 1995 constitution created one of the world's most ambitious experiments in ethnic federalism. It gave nations, nationalities, and peoples the explicit right to self-determination — including, in theory, secession. What it could not give them was a political culture to match those rights.
+        </p>
+        <p>
+          A decade of reform since 2018 has tested every assumption embedded in that document. New regional boundaries have been drawn and contested. Federal forces have deployed against regional militias. A civil war consumed the north. And yet the federation holds — not comfortably, and not without cost, but it holds.
+        </p>
+        <p>
+          The question for the next decade is not whether Ethiopia will remain one country. It almost certainly will. The question is what kind of country it chooses to be: one where federalism is a lived reality, or one where it remains a constitutional decoration over a centralised state.
+        </p>
+        <p><em>This essay is a placeholder. The full text will be published when the Opinion section launches.</em></p>
+      </div>
+
+      <a href="#" class="read-more" aria-label="Read full essay">Continue reading →</a>
+    </div>
+
+    <!-- Sidebar: more opinions -->
+    <aside class="featured-sidebar" aria-label="More opinion pieces">
+      <p class="sidebar-label">Also in Opinion</p>
+
+      <div class="sidebar-item">
+        <div class="sidebar-item-kicker">Commentary</div>
+        <div class="sidebar-item-h">The Nile talks are stalling. Here is why Ethiopia cannot afford to wait.</div>
+        <div class="sidebar-item-byline">Bekele Tadesse · 20 April 2026</div>
+      </div>
+
+      <div class="sidebar-item">
+        <div class="sidebar-item-kicker">Diaspora</div>
+        <div class="sidebar-item-h">What the 2026 election means for Ethiopians who cannot vote from abroad</div>
+        <div class="sidebar-item-byline">Sara Haile-Mariam · 18 April 2026</div>
+      </div>
+
+      <div class="sidebar-item">
+        <div class="sidebar-item-kicker">Media</div>
+        <div class="sidebar-item-h">Press freedom in name only: the gap between Ethiopia's law and its practice</div>
+        <div class="sidebar-item-byline">Yonas Tesfaye · 15 April 2026</div>
+      </div>
+
+      <div class="sidebar-item">
+        <div class="sidebar-item-kicker">Economy</div>
+        <div class="sidebar-item-h">Debt, devaluation, and the cost of ambition: Ethiopia's fiscal reckoning</div>
+        <div class="sidebar-item-byline">Tigist Alemu · 12 April 2026</div>
+      </div>
+    </aside>
+
+  </section>
+
+  <!-- ══ OPINION GRID ══ -->
+  <section class="opinions" aria-labelledby="opinions-heading">
+    <div class="opinions-header">
+      <h2 id="opinions-heading">Recent Commentary</h2>
+      <a href="#" aria-label="View all opinion pieces">View all →</a>
+    </div>
+
+    <div class="opinions-grid">
+
+      <a href="#" class="ocard" aria-label="Opinion: A reckoning for Addis Ababa's urban poor">
+        <div class="ocard-kicker">Urban Affairs</div>
+        <h3 class="ocard-h">A reckoning for Addis Ababa's urban poor — and the city planners who failed them</h3>
+        <p class="ocard-dek">The masterplan promised a modern capital. What it delivered was displacement without compensation and a housing crisis the government refuses to name.</p>
+        <div class="ocard-byline">
+          <div class="ocard-avatar" aria-hidden="true">✦</div>
+          <div class="ocard-byline-text">
+            <strong>Meaza Solomon</strong>
+            24 April 2026 · 8 min read
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="ocard" aria-label="Opinion: The GERD and Egypt's red lines">
+        <div class="ocard-kicker">Diplomacy</div>
+        <h3 class="ocard-h">The GERD and Egypt's red lines: why the dam dispute is really about sovereignty</h3>
+        <p class="ocard-dek">Water rights are the surface argument. Beneath them lies a deeper contest about which state gets to define the rules of the Nile Basin — and who enforces them.</p>
+        <div class="ocard-byline">
+          <div class="ocard-avatar" aria-hidden="true">✦</div>
+          <div class="ocard-byline-text">
+            <strong>Dawit Girma</strong>
+            22 April 2026 · 11 min read
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="ocard" aria-label="Opinion: Oromia's political future">
+        <div class="ocard-kicker">Politics</div>
+        <h3 class="ocard-h">Oromia after the protests: identity, power, and what the next generation actually wants</h3>
+        <p class="ocard-dek">The generation that drove the 2018 revolution is now in its thirties. Their demands have matured. The political class has not kept up.</p>
+        <div class="ocard-byline">
+          <div class="ocard-avatar" aria-hidden="true">✦</div>
+          <div class="ocard-byline-text">
+            <strong>Chaltu Birru</strong>
+            19 April 2026 · 9 min read
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="ocard" aria-label="Opinion: The church and the state">
+        <div class="ocard-kicker">Society</div>
+        <h3 class="ocard-h">The Ethiopian Orthodox Church split is a political crisis dressed in religious clothing</h3>
+        <p class="ocard-dek">The schism in Ethiopia's oldest institution reflects every tension in the country — ethnicity, power, and who controls the narrative of nationhood.</p>
+        <div class="ocard-byline">
+          <div class="ocard-avatar" aria-hidden="true">✦</div>
+          <div class="ocard-byline-text">
+            <strong>Father Tesfaye Bekele</strong>
+            17 April 2026 · 7 min read
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="ocard" aria-label="Opinion: Diaspora remittances and political leverage">
+        <div class="ocard-kicker">Diaspora</div>
+        <h3 class="ocard-h">Remittances are Ethiopia's second-largest income source. The diaspora deserves a political voice to match</h3>
+        <p class="ocard-dek">Ethiopians abroad send more than $6 billion home each year. They receive no vote, no representation, and no formal channel for policy input.</p>
+        <div class="ocard-byline">
+          <div class="ocard-avatar" aria-hidden="true">✦</div>
+          <div class="ocard-byline-text">
+            <strong>Hiwot Tekeste</strong>
+            14 April 2026 · 10 min read
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="ocard" aria-label="Opinion: Ethiopia's media law">
+        <div class="ocard-kicker">Press Freedom</div>
+        <h3 class="ocard-h">Ethiopia's new media law is better than the old one. That is a low bar and we should say so plainly</h3>
+        <p class="ocard-dek">Progress deserves acknowledgement. So does the distance still to travel. The 2021 Media Law is a step — not an arrival.</p>
+        <div class="ocard-byline">
+          <div class="ocard-avatar" aria-hidden="true">✦</div>
+          <div class="ocard-byline-text">
+            <strong>Rediet Abebe</strong>
+            11 April 2026 · 6 min read
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ══ PULL QUOTE ══ -->
+  <div class="pullquote" role="complementary" aria-label="Editorial note">
+    <p class="pullquote-text">"Opinion journalism is not the absence of bias — it is the honest declaration of a point of view. We ask our contributors to argue their position, defend it with evidence, and welcome the response."</p>
+    <p class="pullquote-attr">ESAT Opinion Editor</p>
+  </div>
+
+  <!-- ══ COLUMNISTS ══ -->
+  <section class="columnists" aria-labelledby="columnists-heading">
+    <div class="columnists-header">
+      <h2 id="columnists-heading">Our Columnists</h2>
+    </div>
+    <div class="columnists-grid">
+
+      <div class="columnist">
+        <div class="columnist-avatar" aria-hidden="true">✦</div>
+        <div class="columnist-name">Dr. Aster Woldemichael</div>
+        <div class="columnist-title">Politics & Federalism</div>
+        <p class="columnist-bio">Political scientist at Addis Ababa University. Writes on constitutional design, ethnic federalism, and the politics of reform in the Horn of Africa.</p>
+      </div>
+
+      <div class="columnist">
+        <div class="columnist-avatar" aria-hidden="true">✦</div>
+        <div class="columnist-name">Bekele Tadesse</div>
+        <div class="columnist-title">Foreign Affairs</div>
+        <p class="columnist-bio">Former diplomat and regional affairs analyst. Specialises in Nile Basin negotiations, AU policy, and Ethiopia's bilateral relationships.</p>
+      </div>
+
+      <div class="columnist">
+        <div class="columnist-avatar" aria-hidden="true">✦</div>
+        <div class="columnist-name">Sara Haile-Mariam</div>
+        <div class="columnist-title">Diaspora & Identity</div>
+        <p class="columnist-bio">Washington D.C.-based journalist and essayist. Covers the Ethiopian diaspora in North America, dual identity, and second-generation experience.</p>
+      </div>
+
+      <div class="columnist">
+        <div class="columnist-avatar" aria-hidden="true">✦</div>
+        <div class="columnist-name">Yonas Tesfaye</div>
+        <div class="columnist-title">Media & Press Freedom</div>
+        <p class="columnist-bio">Editor and media critic. Has reported from Ethiopia, Eritrea, and Sudan. Advocates for journalist safety and editorial independence across East Africa.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ EDITORIAL POLICY NOTE ══ -->
+  <section class="editorial-note" aria-label="Editorial policy">
+    <div class="editorial-note-inner">
+      <p class="editorial-note-label">Editorial Policy</p>
+      <p class="editorial-note-text">
+        Opinion pieces published by ESAT represent the views of their authors, not the editorial board. ESAT does not require contributors to hold any particular political position. We require only that they argue honestly, cite their evidence, and accept the right of reply.
+      </p>
+      <p class="editorial-note-sub">To submit an opinion piece, contact our editors. Submissions in Amharic, Afaan Oromoo, Tigrigna, and English are welcome.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer role="contentinfo">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a href="/" class="foot-logo" aria-label="ESAT home">
+        <img src="/esat-logo.png" alt="ESAT logo" width="30" height="30" loading="lazy">
+        <span class="foot-logo-t">ESAT</span>
+      </a>
+      <p class="foot-tag">Independent Ethiopian broadcasting since April 24, 2010.<br>Washington D.C. · Amsterdam · London · Addis Ababa</p>
+      <div class="foot-social" aria-label="ESAT on social media">
+        <a href="https://www.youtube.com/@ESATtvEthiopia" target="_blank" rel="noopener noreferrer" aria-label="ESAT on YouTube">YouTube</a>
+        <a href="#" aria-label="ESAT on Facebook">Facebook</a>
+        <a href="#" aria-label="ESAT on X (Twitter)">X</a>
+        <a href="#" aria-label="ESAT on Telegram">Telegram</a>
+      </div>
+    </div>
+
+    <div class="foot-col">
+      <div class="foot-col-h">Coverage</div>
+      <ul>
+        <li><a href="/">News</a></li>
+        <li><a href="opinion.html">Opinion</a></li>
+        <li><a href="#">Programs</a></li>
+        <li><a href="#">Live TV</a></li>
+        <li><a href="#">Radio</a></li>
+        <li><a href="https://www.youtube.com/@ESATtvEthiopia" target="_blank" rel="noopener noreferrer">YouTube Archive</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <div class="foot-col-h">Organisation</div>
+      <ul>
+        <li><a href="#">About ESAT</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Editorial Policy</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <div class="foot-col-h">Policies</div>
+      <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Corrections</a></li>
+        <li><a href="#">Accessibility</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <span>© 2026 Foundation Ethiopian Satellite Television and Radio</span>
+    <span lang="am">ኢሳት — ኢትዮጵያ ሳተላይት ቴሌቪዥን እና ሬዲዮ</span>
+  </div>
+</footer>
+
+</body>
+</html>
