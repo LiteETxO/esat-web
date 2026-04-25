@@ -242,6 +242,70 @@
     }
 
     /* ── Hero ── */
+    /* ── NEWS TICKER ── */
+    .ticker {
+      background: var(--ink);
+      color: var(--white);
+      height: 36px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      position: sticky;
+      top: 64px;
+      z-index: 190;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .ticker-label {
+      flex-shrink: 0;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0 14px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      z-index: 1;
+    }
+    .ticker-track {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+    }
+    .ticker-items {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      animation: tickerScroll 55s linear infinite;
+      gap: 0;
+    }
+    .ticker-items:hover { animation-play-state: paused; }
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.82);
+      padding: 0 32px;
+      cursor: default;
+      transition: color .15s;
+    }
+    .ticker-item:hover { color: var(--gold); }
+    .ticker-sep {
+      color: var(--gold);
+      font-size: 10px;
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+    @keyframes tickerScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
     /* ── ON-AIR ANNOUNCEMENT ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
@@ -995,6 +1059,49 @@
 </header>
 
 <main id="main" role="main">
+
+  <!-- ══ NEWS TICKER ══ -->
+  <div class="ticker" role="marquee" aria-label="Breaking news ticker" aria-live="off">
+    <div class="ticker-label">Breaking</div>
+    <div class="ticker-track">
+      <div class="ticker-items">
+        <!-- Set 1 -->
+        <span class="ticker-item">ESAT returns to broadcast from Addis Ababa studio after years in exile</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">Ethiopia's general election set for June 1 — opposition parties call for access in Amhara and Oromia</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">Grand Ethiopian Renaissance Dam reaches full operational capacity — Nile talks resume in Cairo</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">African Union Summit opens in Addis Ababa; Sudan ceasefire on the agenda</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">Tigray regional administration confirms parliament restoration amid ongoing reconciliation process</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">Ethiopian diaspora remittances reach $6.4 billion in 2025 — highest on record</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">National Electoral Board announces constituency boundaries ahead of June vote</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">ESAT satellite broadcast frequency to be announced — check this page for updates</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <!-- Set 2 — duplicate for seamless loop -->
+        <span class="ticker-item">ESAT returns to broadcast from Addis Ababa studio after years in exile</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">Ethiopia's general election set for June 1 — opposition parties call for access in Amhara and Oromia</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">Grand Ethiopian Renaissance Dam reaches full operational capacity — Nile talks resume in Cairo</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">African Union Summit opens in Addis Ababa; Sudan ceasefire on the agenda</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">Tigray regional administration confirms parliament restoration amid ongoing reconciliation process</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">Ethiopian diaspora remittances reach $6.4 billion in 2025 — highest on record</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">National Electoral Board announces constituency boundaries ahead of June vote</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+        <span class="ticker-item">ESAT satellite broadcast frequency to be announced — check this page for updates</span>
+        <span class="ticker-sep" aria-hidden="true">◆</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ══ ON-AIR ANNOUNCEMENT ══ -->
   <section class="announcement" aria-labelledby="announcement-heading">
