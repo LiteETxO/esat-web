@@ -67,6 +67,8 @@ export default async function LocaleLayout({ children, params }: Props) {
     notoSansEthiopic.variable,
   ].join(' ')
 
+  const base = locale === 'en' ? '' : `/${locale}`
+
   const navLinks = [
     { href: `/${locale === 'en' ? '' : locale + '/'}news`.replace('//', '/'), label: locale === 'am' ? 'ዜና' : 'News' },
     { href: `/${locale === 'en' ? '' : locale + '/'}programs`.replace('//', '/'), label: locale === 'am' ? 'ፕሮግራሞች' : 'Programs' },
@@ -75,35 +77,46 @@ export default async function LocaleLayout({ children, params }: Props) {
     { href: `/${locale === 'en' ? '' : locale + '/'}about`.replace('//', '/'), label: locale === 'am' ? 'ስለ ኢሳት' : 'About' },
   ]
 
+  const donateHref = `/${locale === 'en' ? '' : locale + '/'}donate`.replace('//', '/')
+
   return (
     <html lang={locale} className={fontVars}>
-      <body className="min-h-screen flex flex-col" style={{ background: 'var(--bg-page)', color: 'var(--fg-primary)', fontFamily: 'var(--font-body, Inter, sans-serif)' }}>
+      <body className="min-h-screen flex flex-col" style={{ background: 'var(--paper)', color: 'var(--text)' }}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {/* Header */}
-          <header className="sticky top-0 z-50 backdrop-blur" style={{ background: 'var(--header-bg)', borderBottom: '1px solid var(--header-border)' }}>
-            <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between gap-6">
+
+          {/* Studio time strip */}
+          <div className="studio-strip">
+            <div className="max-w-[1280px] mx-auto px-6 py-2 flex items-center gap-5 overflow-x-auto text-[11px]">
+              <div className="flex items-center gap-1.5 shrink-0">
+                <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--gold-soft)' }} />
+                <span className="font-semibold" style={{ color: 'rgba(255,255,255,0.9)' }}>ADDIS ABABA</span>
+                <span style={{ color: 'var(--gold-soft)' }}>·</span>
+                <span style={{ color: 'rgba(255,255,255,0.65)' }}>EAT</span>
+              </div>
+              <span style={{ color: 'var(--gold-soft)' }}>·</span>
+              <span className="shrink-0 ethiopic" style={{ color: 'rgba(255,255,255,0.75)' }}>ኢሳት — ኢትዮጵያ ሳተላይት ቴሌቪዥን እና ሬዲዮ</span>
+              <span className="ml-auto shrink-0" style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'var(--font-mono)' }}>
+                {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+              </span>
+            </div>
+          </div>
+
+          {/* Masthead */}
+          <header className="sticky top-0 z-50" style={{ background: 'var(--header-bg)', borderBottom: '1px solid var(--header-border)', backdropFilter: 'blur(8px)' }}>
+            <div className="max-w-[1280px] mx-auto px-6 h-[72px] flex items-center justify-between gap-6">
               <WordmarkLogo locale={locale} />
 
-              <nav className="hidden md:flex items-center gap-5 text-sm" aria-label="Main navigation">
+              <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
                 {navLinks.map(({ href, label }) => (
-                  <Link
-                    key={href}
-                    href={href}
-                    className="transition-colors hover:opacity-100"
-                    style={{ color: 'var(--fg-secondary)' }}
-                  >
+                  <Link key={href} href={href} className="nav-link" style={{ fontSize: 14, fontWeight: 500, color: 'var(--text)', padding: '6px 2px', transition: 'color 0.15s ease' }}>
                     {label}
                   </Link>
                 ))}
               </nav>
 
               <div className="flex items-center gap-3">
-                <Link
-                  href={`/${locale === 'en' ? '' : locale + '/'}donate`.replace('//', '/')}
-                  className="hidden sm:inline-flex items-center px-4 py-1.5 rounded text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                  style={{ background: 'var(--accent)' }}
-                >
-                  {locale === 'am' ? 'ይደግፉ' : 'Donate'}
+                <Link href={donateHref} className="btn-gold hidden sm:inline-flex">
+                  {locale === 'am' ? 'ኢሳትን ይደግፉ' : 'Support ESAT'}
                 </Link>
                 <LocaleSwitcher />
               </div>
@@ -113,50 +126,60 @@ export default async function LocaleLayout({ children, params }: Props) {
           <main className="flex-1">{children}</main>
 
           {/* Footer */}
-          <footer className="border-t text-sm" style={{ background: 'var(--bg-surface)', borderColor: 'var(--border)', color: 'var(--fg-secondary)' }}>
-            <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <footer className="border-t text-sm" style={{ background: 'var(--bg-dark)', borderColor: '#2a2520', color: 'rgba(255,255,255,0.5)' }}>
+            <div className="max-w-[1280px] mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
               <div>
-                <WordmarkLogo locale={locale} className="mb-3" />
-                <p className="text-xs leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
+                <WordmarkLogo locale={locale} className="mb-4" />
+                <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
                   Independent Ethiopian broadcasting since April 24, 2010.
+                  Washington D.C. · Amsterdam · London
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--fg-muted)' }}>Coverage</h3>
-                <ul className="space-y-2">
-                  {['News', 'Programs', 'Live TV', 'Radio', 'Archives'].map(item => (
-                    <li key={item}><Link href="#" className="hover:opacity-80 transition-opacity">{item}</Link></li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--fg-muted)' }}>Organisation</h3>
-                <ul className="space-y-2">
-                  {['About ESAT', 'Contact', 'Donate', 'Press inquiries'].map(item => (
-                    <li key={item}><Link href="#" className="hover:opacity-80 transition-opacity">{item}</Link></li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--fg-muted)' }}>Policies</h3>
+                <h3 className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--gold)', fontFamily: 'var(--font-mono)' }}>Coverage</h3>
                 <ul className="space-y-2">
                   {[
-                    { label: 'Editorial Policy', href: `/${locale === 'en' ? '' : locale + '/'}editorial-policy`.replace('//', '/') },
-                    { label: 'Privacy', href: `/${locale === 'en' ? '' : locale + '/'}privacy`.replace('//', '/') },
-                    { label: 'Terms', href: `/${locale === 'en' ? '' : locale + '/'}terms`.replace('//', '/') },
-                    { label: 'Corrections', href: `/${locale === 'en' ? '' : locale + '/'}corrections`.replace('//', '/') },
+                    { label: 'News', href: `${base}/news` },
+                    { label: 'Programs', href: `${base}/programs` },
+                    { label: 'Live TV', href: `${base}/live` },
+                    { label: 'Radio', href: `${base}/radio` },
+                    { label: 'Archives', href: `${base}/archives` },
                   ].map(({ label, href }) => (
-                    <li key={label}><Link href={href} className="hover:opacity-80 transition-opacity">{label}</Link></li>
+                    <li key={label}><Link href={href} className="hover:opacity-80 transition-opacity" style={{ color: 'rgba(255,255,255,0.55)' }}>{label}</Link></li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--gold)', fontFamily: 'var(--font-mono)' }}>Organisation</h3>
+                <ul className="space-y-2">
+                  {[
+                    { label: 'About ESAT', href: `${base}/about` },
+                    { label: 'Contact', href: `${base}/contact` },
+                    { label: 'Donate', href: donateHref },
+                  ].map(({ label, href }) => (
+                    <li key={label}><Link href={href} className="hover:opacity-80 transition-opacity" style={{ color: 'rgba(255,255,255,0.55)' }}>{label}</Link></li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--gold)', fontFamily: 'var(--font-mono)' }}>Policies</h3>
+                <ul className="space-y-2">
+                  {[
+                    { label: 'Editorial Policy', href: `${base}/editorial-policy` },
+                    { label: 'Privacy', href: `${base}/privacy` },
+                    { label: 'Terms', href: `${base}/terms` },
+                    { label: 'Corrections', href: `${base}/corrections` },
+                  ].map(({ label, href }) => (
+                    <li key={label}><Link href={href} className="hover:opacity-80 transition-opacity" style={{ color: 'rgba(255,255,255,0.55)' }}>{label}</Link></li>
                   ))}
                 </ul>
               </div>
             </div>
-            <div className="max-w-7xl mx-auto px-4 py-4 border-t flex flex-wrap items-center justify-between gap-2 text-xs" style={{ borderColor: 'var(--border)', color: 'var(--fg-muted)' }}>
+            <div className="max-w-[1280px] mx-auto px-6 py-4 border-t flex flex-wrap items-center justify-between gap-2 text-xs" style={{ borderColor: '#2a2520', color: 'rgba(255,255,255,0.3)' }}>
               <span>© {new Date().getFullYear()} Foundation Ethiopian Satellite Television and Radio</span>
-              {/* TODO: verify legal entity details, registration numbers, and addresses before publishing */}
-              <span>Washington D.C. · Amsterdam · London</span>
             </div>
           </footer>
+
         </NextIntlClientProvider>
       </body>
     </html>

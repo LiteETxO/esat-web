@@ -2,57 +2,63 @@
 
 /* ─── Design tokens ─────────────────────────────────────────── */
 :root {
-  /* Backgrounds */
-  --bg-page:    #F9F8F6;
-  --bg-surface: #FFFFFF;
-  --bg-muted:   #F3F2EF;
+  --paper:          #faf9f5;
+  --bg:             #ffffff;
+  --bg-alt:         #f5f3ed;
+  --bg-dark:        #0d0b08;
 
-  /* Foreground */
-  --fg-primary:   #1A1916;
-  --fg-secondary: #5C5750;
-  --fg-muted:     #9C9790;
+  --text:           #1a1814;
+  --text-secondary: #4a463e;
+  --text-muted:     #7a756a;
 
-  /* Borders */
-  --border:       #E4E2DC;
-  --border-heavy: #C8C5BC;
+  --border:         #e8e3d6;
+  --border-strong:  #d4cebe;
 
-  /* Brand — Ethiopian green (desaturated, editorial) */
-  --accent:     #0F8A3F;
-  --accent-dim: #0B6B31;
+  --accent:         #0a5d3a;
+  --gold:           #b8892b;
+  --gold-soft:      #d4a945;
+  --live:           #c8362e;
 
-  /* Editorial accents — use sparingly */
-  --gold:    #C9A227;
-  --red-ed:  #C0392B;
+  /* legacy aliases kept for components that reference them */
+  --bg-page:    var(--paper);
+  --bg-surface: var(--bg);
+  --bg-muted:   var(--bg-alt);
+  --fg-primary:   var(--text);
+  --fg-secondary: var(--text-secondary);
+  --fg-muted:     var(--text-muted);
+  --accent-dim: #08482e;
+  --red-ed:     var(--live);
 
-  /* Header */
-  --header-bg:     rgba(249,248,246,0.92);
-  --header-border: #E4E2DC;
+  --font-serif: 'Source Serif 4', 'Noto Serif Ethiopic', Georgia, serif;
+  --font-sans:  'Inter', 'Noto Sans Ethiopic', system-ui, -apple-system, sans-serif;
+  --font-mono:  'JetBrains Mono', ui-monospace, monospace;
+
+  /* header */
+  --header-bg:     rgba(255,255,255,0.96);
+  --header-border: var(--border);
 }
-
 
 /* ─── Base ──────────────────────────────────────────────────── */
 html {
   color-scheme: light;
-  background-color: var(--bg-page);
-  color: var(--fg-primary);
-  font-family: var(--font-body, Arial, sans-serif);
+  background-color: var(--paper);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-feature-settings: 'ss01', 'cv11';
   -webkit-font-smoothing: antialiased;
 }
 
-/* Ethiopic script — always fall through to Noto, never Latin */
-:lang(am),
-:lang(or) {
-  font-family: var(--font-eth-body, 'Noto Sans Ethiopic', serif);
+/* Ethiopic script */
+:lang(am), :lang(or) {
+  font-family: 'Noto Sans Ethiopic', var(--font-sans);
 }
-
 :lang(am) h1, :lang(am) h2, :lang(am) h3, :lang(am) h4,
 :lang(or) h1, :lang(or) h2, :lang(or) h3, :lang(or) h4 {
-  font-family: var(--font-eth-heading, 'Noto Serif Ethiopic', serif);
+  font-family: 'Noto Serif Ethiopic', serif;
 }
 
-/* English headings use editorial serif */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading, Georgia, serif);
+  font-family: var(--font-serif);
 }
 
 /* Selection */
@@ -66,3 +72,208 @@ h1, h2, h3, h4, h5, h6 {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+
+/* ─── Utility classes ───────────────────────────────────────── */
+.font-serif  { font-family: var(--font-serif); }
+.font-mono   { font-family: var(--font-mono); }
+.ethiopic    { font-family: 'Noto Serif Ethiopic', serif; }
+
+.category {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+}
+
+.link-hover { transition: opacity 0.15s ease; }
+.link-hover:hover { opacity: 0.7; }
+
+/* Section bilingual header */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.section-header-am {
+  font-family: 'Noto Serif Ethiopic', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1;
+}
+.section-header-en {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--text);
+}
+.section-header-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  position: relative;
+  top: -6px;
+}
+.section-header-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  align-self: center;
+}
+
+/* Featured video thumb */
+.featured-thumb {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #1a1a1a;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.featured-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Recent broadcast sidebar items */
+.update-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.12s ease;
+}
+.update-item:last-child { border-bottom: 0; }
+.update-item:hover { background: rgba(184,137,43,0.04); }
+.update-meta { border-left: 2px solid var(--gold); padding-left: 10px; }
+.update-date {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+.update-lang {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.update-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 14.5px;
+  line-height: 1.32;
+  color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.15s ease;
+}
+.update-item:hover .update-title { color: var(--accent); }
+
+/* Video grid cards */
+.card-video { transition: transform 0.2s ease; }
+.card-video:hover .card-video-thumb { transform: translateY(-2px); }
+.card-video:hover .card-video-title { color: var(--accent); }
+.card-video-thumb {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #1a1a1a;
+  overflow: hidden;
+  border-radius: 2px;
+  transition: transform 0.2s ease;
+}
+.card-video-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.card-video-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 15.5px;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  transition: color 0.15s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.play-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.4));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.card-video:hover .play-icon { opacity: 1; }
+
+/* Manifesto */
+.manifesto-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.manifesto-kicker::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--gold-soft);
+}
+.manifesto-body {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.35;
+  letter-spacing: -0.014em;
+}
+
+/* Donate tiers */
+.donate-tier {
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,0.25);
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  background: transparent;
+}
+.donate-tier:hover { border-color: var(--gold-soft); background: rgba(212,169,69,0.08); }
+
+.btn-gold {
+  background: var(--gold);
+  color: white;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: 2px;
+  transition: background 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-gold:hover { background: #9d7323; }
