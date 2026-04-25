@@ -859,8 +859,9 @@
       <div>
         <div class="yt-wrap">
           <iframe
-            src="https://www.youtube.com/embed/live_stream?channel=UCSYM-vgRrMYsZbG-Z7Kz0Pw&autoplay=0"
-            title="ESAT Live Broadcast — Ethiopian Satellite Television"
+            id="hero-yt"
+            src="https://www.youtube.com/embed/XU5MvT-yL5c"
+            title="ESAT Broadcast — Ethiopian Satellite Television"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
@@ -1185,12 +1186,23 @@
   var badge = document.getElementById('live-badge');
   if (!badge) return;
 
+  var heroFrame = document.getElementById('hero-yt');
+
   function check() {
     var ctrl = new AbortController();
     var t = setTimeout(function () { ctrl.abort(); }, 3000);
     fetch('/api/live-status', { signal: ctrl.signal })
       .then(function (r) { clearTimeout(t); return r.ok ? r.json() : null; })
-      .then(function (d) { badge.style.display = (d && d.isLive) ? 'flex' : 'none'; })
+      .then(function (d) {
+        if (d && d.isLive) {
+          badge.style.display = 'flex';
+          if (heroFrame && d.videoId) {
+            heroFrame.src = 'https://www.youtube.com/embed/' + d.videoId + '?autoplay=0';
+          }
+        } else {
+          badge.style.display = 'none';
+        }
+      })
       .catch(function () { badge.style.display = 'none'; });
   }
 
