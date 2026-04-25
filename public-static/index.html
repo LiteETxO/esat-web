@@ -323,29 +323,68 @@
       from { opacity: 0; transform: translateX(-10px); }
       to   { opacity: 1; transform: translateX(0); }
     }
-    @keyframes signalSweep {
-      0%   { background-position: 0% 0%; }
-      100% { background-position: 100% 100%; }
+    @keyframes signalBreathe {
+      0%   { background-position: 0% 0%, 0% 50%; }
+      50%  { background-position: 0% 0%, 100% 50%; }
+      100% { background-position: 0% 0%, 0% 50%; }
     }
     @keyframes badgeGlow {
       0%, 100% { box-shadow: 0 0 0 0 rgba(60,184,122,0); }
-      50%       { box-shadow: 0 0 18px 4px rgba(60,184,122,0.45); }
+      50%       { box-shadow: 0 0 24px 6px rgba(60,184,122,0.55); }
+    }
+    @keyframes beamSweep {
+      0%   { transform: translateX(-100%) skewX(-15deg); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { transform: translateX(350%) skewX(-15deg); opacity: 0; }
+    }
+    @keyframes headlineGlow {
+      0%, 100% { text-shadow: none; }
+      50%       { text-shadow: 0 0 40px rgba(109,212,160,0.25); }
+    }
+    @keyframes borderTravel {
+      0%   { background-position: -100% 0; }
+      100% { background-position: 200% 0; }
+    }
+    @keyframes freqPulse {
+      0%, 100% { border-left-color: rgba(255,255,255,0.08); }
+      50%       { border-left-color: rgba(60,184,122,0.35); }
     }
 
     .announcement {
+      position: relative;
+      overflow: hidden;
       background:
         repeating-linear-gradient(
           0deg,
           transparent,
           transparent 3px,
-          rgba(255,255,255,0.012) 3px,
-          rgba(255,255,255,0.012) 4px
+          rgba(255,255,255,0.015) 3px,
+          rgba(255,255,255,0.015) 4px
         ),
-        linear-gradient(135deg, #0a2318 0%, #0d3322 50%, #0a2318 100%);
-      background-size: 100% 100%, 400% 400%;
-      animation: signalSweep 12s ease-in-out infinite alternate;
+        linear-gradient(120deg, #061510 0%, #0f3d25 35%, #0a2318 65%, #061510 100%);
+      background-size: 100% 100%, 300% 100%;
+      animation: signalBreathe 7s ease-in-out infinite;
       color: var(--white);
-      border-bottom: 3px solid var(--gold);
+      border-bottom: 3px solid transparent;
+      background-clip: padding-box;
+      box-shadow: 0 3px 0 0 var(--gold),
+                  inset 0 -1px 0 0 rgba(60,184,122,0.15);
+    }
+    .announcement::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 30%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(109,212,160,0.06) 50%,
+        transparent 100%
+      );
+      animation: beamSweep 6s cubic-bezier(0.4,0,0.6,1) infinite;
+      pointer-events: none;
     }
     .announcement-inner {
       max-width: var(--max);
@@ -381,7 +420,8 @@
       letter-spacing: -0.02em;
       color: var(--white);
       margin-bottom: 16px;
-      animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s both;
+      animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s both,
+                 headlineGlow 4s ease-in-out 1.5s infinite;
     }
     .announcement-h em {
       font-style: italic;
@@ -420,14 +460,15 @@
     .freq-item {
       padding: 20px 24px;
       border-left: 1px solid rgba(255,255,255,0.08);
-      animation: freqSlide 0.5s cubic-bezier(0.22,1,0.36,1) both;
+      animation: freqSlide 0.5s cubic-bezier(0.22,1,0.36,1) both,
+                 freqPulse 5s ease-in-out infinite;
     }
-    .freq-item:first-child  { border-left: none; padding-left: 0; animation-delay: 0.7s; }
-    .freq-item:nth-child(2) { animation-delay: 0.82s; }
-    .freq-item:nth-child(3) { animation-delay: 0.94s; }
-    .freq-item:nth-child(4) { animation-delay: 1.06s; }
-    .freq-item:nth-child(5) { animation-delay: 1.18s; }
-    .freq-item:nth-child(6) { animation-delay: 1.30s; }
+    .freq-item:first-child  { border-left: none; padding-left: 0; animation-delay: 0.7s, 2s; }
+    .freq-item:nth-child(2) { animation-delay: 0.82s, 2.4s; }
+    .freq-item:nth-child(3) { animation-delay: 0.94s, 2.8s; }
+    .freq-item:nth-child(4) { animation-delay: 1.06s, 3.2s; }
+    .freq-item:nth-child(5) { animation-delay: 1.18s, 3.6s; }
+    .freq-item:nth-child(6) { animation-delay: 1.30s, 4.0s; }
     .freq-key {
       font-size: 10px;
       font-weight: 700;
